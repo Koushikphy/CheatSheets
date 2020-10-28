@@ -32,3 +32,15 @@ pr FILE1 FILE2 -m
 ```
 watch -n N FILE
 ```
+#### tree with file size
+```
+tree -h -d 1 --du /path/to/dir
+```
+#### Modify file without opening it
+```
+sed -i "s/string/replace/g" file
+```
+#### Check diskIO of processes
+```
+sudo iotop
+```
