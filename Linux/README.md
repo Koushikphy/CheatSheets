@@ -44,3 +44,16 @@ sed -i "s/string/replace/g" file
 ```
 sudo iotop
 ```
+
+#### Pass output to a argument
+```
+moveRun() {
+  cwd=$(pwd)
+  cd $1
+  pwd
+  cd $cwd
+}
+
+export -f moveRun
+ls -d */ | xargs -n1 bash -c 'moveRun "$@"' _
+```
