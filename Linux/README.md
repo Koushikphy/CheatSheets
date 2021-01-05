@@ -57,3 +57,8 @@ moveRun() {
 export -f moveRun
 ls -d */ | xargs -n1 bash -c 'moveRun "$@"' _
 ```
+
+#### tail with timestamp
+```
+tail -f outputfile | xargs -IL date +"%I:%M:%S %p"
+```
