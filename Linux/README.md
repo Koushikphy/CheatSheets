@@ -62,3 +62,8 @@ ls -d */ | xargs -n1 bash -c 'moveRun "$@"' _
 ```
 tail -f outputfile | xargs -IL date +"%I:%M:%S %p"
 ```
+
+#### vim search current word
+```
+*
+```
