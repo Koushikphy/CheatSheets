@@ -13,7 +13,7 @@
 9. Apply Sin/Cos to the grid created above, save in a file, and plot.
 10. Derive the same result as the previous question but use the series expansion formula for sin and cos. Hint: Use a threshold value to terminate the series.
 11. Use the result of the previous code to calculate the numerical derivative. Compare it with the actual.
-12. Find a histogram of a set of data points. Use the intrinsic or any other random number generator to create the set. Comment on the type of the distribution. If it is a uniform one can you construct a normal distribution from this?. Bonus: Prove Central Limit Theorem (CLT)
+12. Find a histogram of a set of data points. Use the intrinsic or any other random number generator to create the set. Comment on the type of the distribution. If it is a uniform one, can you construct a normal distribution from this? Bonus: Prove Central Limit Theorem (CLT)
 13. Simulate a Random Walk problem and prove that the distance d traveled is proportional to sqrt(N), where N is number of steps
 14. Matrix operations:
 	1. Matrix Multiplication of same and unequal order. Bonus: Code the same without using any loop.
@@ -31,7 +31,7 @@
 	3. Fixed point iteration
 	4. Secant and Newton-Raphson method. Also, find multiple roots/ roots of a polynomial with the latter. Also, find complex roots.
 	5. Solve the system of linear equations with the exact solution. Tip: Use Gauss-Jordon elimination. Bonus & Advanced: solve a over/underdetermined system of equations.
-16. Regression and Least-squares methods: 
+16. Regression and Least-squares methods:
 	1. Linear.
 	2. Quadratic
 	3. N-th order polynomial regression.
@@ -52,9 +52,5 @@
 20. Fourier transform:
 	1. Write Discrete Fourier Transform(DFT). Identify the frequency of a given sine wave.
 	2. Use Fast Fourier Transform(FFT). You can use a library interface like FFTW. Bonus: Code it yourself
-	3. Find the derivative of a function using Fourier transform
-
-
-
-
-
+	3. Find the derivative of a function using Fourier transform.
+	4. Denoise a sample data using fourier transformation.
