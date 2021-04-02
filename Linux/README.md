@@ -67,3 +67,8 @@ tail -f outputfile | xargs -IL date +"%I:%M:%S %p"
 ```
 *
 ```
+
+#### Quickly benchmark file I/O speed
+```
+dd if=/dev/zero of=/tmp/output conv=fdatasync bs=384k count=1k; rm -f /tmp/output
+```
