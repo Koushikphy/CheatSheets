@@ -72,3 +72,7 @@ tail -f outputfile | xargs -IL date +"%I:%M:%S %p"
 ```
 dd if=/dev/zero of=/tmp/output conv=fdatasync bs=384k count=1k; rm -f /tmp/output
 ```
+#### Check location of some running command
+```
+ls -l /proc/<proc_id>/fd
+```
