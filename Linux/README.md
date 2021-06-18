@@ -76,3 +76,19 @@ dd if=/dev/zero of=/tmp/output conv=fdatasync bs=384k count=1k; rm -f /tmp/outpu
 ```
 ls -l /proc/<proc_id>/fd
 ```
+
+#### File compressions
+Compress  
+```
+gzip -kv <filename>
+#or
+gzip -kvr <directory>
+```
+
+Decompress
+```
+gzip -d file.gz
+```
+
+For parallel gzip use https://zlib.net/pigz/
+For best possible compression use https://github.com/ckolivas/lrzip
