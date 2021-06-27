@@ -8,6 +8,11 @@ ls -d <location>*/
 rsync -avh --progress --ignore-times
 ```
 
+#### Print m to n lines of a file:
+```
+sed -n 'm,np' file
+```
+
 #### set date and time directly from terminal:
 ```
 sudo date -s "$(wget -qSO- --max-redirect=0 google.in 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
