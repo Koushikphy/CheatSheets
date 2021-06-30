@@ -94,6 +94,9 @@ Decompress
 ```
 gzip -d file.gz
 ```
-A better option is to use `xz`, usually avialable by defualt in linux distros, it provide better compression than `gzip` and supports mulitple threads.  
-For parallel gzip use https://zlib.net/pigz/
+A better option is to use `xz`, usually avialable by defualt in linux distros, it provide better compression than `gzip` and supports mulitple threads. For quick usage, use
+```
+xz -k  --fast -T <processor> --verbose <file>
+```
+For parallel gzip use https://zlib.net/pigz/  
 For best possible compression use https://github.com/ckolivas/lrzip
