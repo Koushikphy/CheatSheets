@@ -3,12 +3,8 @@
 In multi data set file the data sets are seperated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatevely, data blocks are seperated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data
 
 
-1. Plot a file named 'data.dat' using its 1st and 2nd column  
-`plot 'data.dat' u 1:2`  
-or just 
 
-
-1. Plot part of a file  
+1. __Plot part of a file__ :  
 __index command__:
 Plot part of a mulit data set file using index command.To plot the 3rd index of a multi-dataset file use, (index starts from 0)
 ```
