@@ -97,3 +97,9 @@ gzip -d file.gz
 
 For parallel gzip use https://zlib.net/pigz/
 For best possible compression use https://github.com/ckolivas/lrzip
+
+
+#### Run command with `find`
+```
+find *** -exec bash -c '<command> "$0"' {} \;
+```
