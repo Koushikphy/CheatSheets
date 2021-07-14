@@ -30,3 +30,10 @@ __Samples:__
 *   `every :2`	plot every 2 data block  
 *   `every :::5::8`	plot from 5-th to 8-th data blocks  
 *   `every :::5::5` plot 5-th data block
+
+
+__with bash command__
+Bash commands can be used inside the gnuplot plot function to modify/fiter data directly. e.g. to plot using only first n rows of the data file.
+```
+pl '< head -n file'
+```
