@@ -70,6 +70,12 @@ dd if=/dev/zero of=/tmp/output conv=fdatasync bs=384k count=1k; rm -f /tmp/outpu
 ls -l /proc/<proc_id>/fd
 ```
 
+#### rsync only copy file with certain extension
+copy files only with `.sh` [extension](https://stackoverflow.com/questions/11111562/rsync-copy-over-only-certain-types-of-files-using-include-option/11111793)
+```
+rsync -zarvm --include="*/" --include="*.sh" --exclude="*" "$from" "$to"
+```
+
 #### File compressions
 Compress  
 ```
