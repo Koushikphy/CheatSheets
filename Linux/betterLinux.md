@@ -18,7 +18,7 @@ Preferred usage `dust [-b]`
 ---
 ## 1. `dua`: replacement for `du`
 Install it with `cargo install dua-cli` or download the latest release from https://github.com/Byron/dua-cli/releases  
-Ist preferable for its interactive explorer (like `ncdu`) use it with `dua i`
+Its preferable for its interactive explorer (like `ncdu`) use it with `dua i`
 
 ---
 ## 1. `fzz`: replacement for `Ctrl+R`(reverse-i-search)

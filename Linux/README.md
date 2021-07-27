@@ -1,11 +1,6 @@
-#### List directories only: 
-```bash
-ls -d <location>*/
-```  
-
 #### Copy files with progress and speed shown:
 ```
-rsync -avh --progress --ignore-times
+rsync -zmavh --progress --stats
 ```
 
 #### Print m to n lines of a file:
@@ -18,11 +13,6 @@ sed -n 'm,np' file
 sudo date -s "$(wget -qSO- --max-redirect=0 google.in 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
 ```
 
-#### vi search and replace
-```
-:%s/foo/bar/g
-```
-
 #### vi open multiple files simultaneously
 ```
 vi FILE1 FILE2 ... -O/-o
@@ -32,11 +22,12 @@ vi FILE1 FILE2 ... -O/-o
 ```
 pr FILE1 FILE2 -m 
 ```
-
+<!-- 
 #### bash follow a file every N seconds
 ```
 watch -n N FILE
-```
+``` -->
+
 #### tree with file size
 ```
 tree -h -d 1 --du /path/to/dir
@@ -68,10 +59,7 @@ ls -d */ | xargs -n1 bash -c 'moveRun "$@"' _
 tail -f outputfile | xargs -IL date +"%I:%M:%S %p"
 ```
 
-#### vim search current word
-```
-*
-```
+
 
 #### Quickly benchmark file I/O speed
 ```
