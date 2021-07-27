@@ -76,26 +76,6 @@ copy files only with `.sh` [extension](https://stackoverflow.com/questions/11111
 rsync -zarvm --include="*/" --include="*.sh" --exclude="*" "$from" "$to"
 ```
 
-#### File compressions
-Compress  
-```
-gzip -kv <filename>
-#or
-gzip -kvr <directory>
-```
-
-Decompress
-```
-gzip -d file.gz
-```
-A better option is to use `xz`, usually avialable by defualt in linux distros, it provide better compression than `gzip` and supports mulitple threads. For quick usage, use
-```
-xz -k  --fast -T <processor> --verbose <file>
-```
-For parallel gzip use https://zlib.net/pigz/  
-For best possible compression use https://github.com/ckolivas/lrzip
-
-
 #### Run command with `find`
 ```
 find *** -exec bash -c '<command> "$0"' {} \;
