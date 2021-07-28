@@ -48,10 +48,9 @@ tar -zcvf archive.tar.gz sample-folder
 `-v` : Verbose  
 `-f` : Archive file name  
 `-j` : Use `bzip2` utility  
-`-J` : Use `xz` utility
-`-I` : Specify compression utility, `-I 'gzip -6'` is same as `-z`
+`-J` : Use `xz` utility  
+`-I` : Specify compression utility, `-I 'gzip -6'` is same as `-z`  
 To decompress the file into the folder again replace the create (`-f`) with extract (`-x`) flag use
 ```bash
 tar -zxvf archive.tar.gz
 ```  
-To set the compression level use
