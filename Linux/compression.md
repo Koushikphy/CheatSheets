@@ -35,7 +35,11 @@ For best possible compression use https://github.com/ckolivas/lrzip
 
 Which one to use?  
 * If you want to quickly compress the file and on a limited resource use `gzip`. 
-* If you want the best compression/ smallest file size and have enough RAM and processor available use `xz`
+* If you want the best compression/ smallest file size and have enough RAM and processor available use `xz`  
+
+Useful utilities:  
+* Parallel gzip [pigz](https://zlib.net/pigz/)
+* Long range zip [lrzip](https://github.com/ckolivas/lrzip)
 
 ---
 ## Compress folder/directory  
