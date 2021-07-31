@@ -38,8 +38,9 @@ Which one to use?
 * If you want the best compression/ smallest file size and have enough RAM and processor available use `xz`
 
 ---
-## Compress folder/directory
-Usually linux folder compression is done by first archiving the folder in a file, usually by `tar` then using a compression utility on it. Gnu `tar` can handle this whole process on its own.
+## Compress folder/directory  
+Using `tar`:   
+`tar` by itself only archive multiple files or folder into one single file and doesn't compress anything. Then other compression utilities are used to compress the file. Gnu `tar` can handle this whole process on its own.
 ```bash
 tar -zcvf archive.tar.gz sample-folder
 ```
@@ -54,3 +55,13 @@ To decompress the file into the folder again replace the create (`-f`) with extr
 ```bash
 tar -zxvf archive.tar.gz
 ```  
+
+
+Using `zip`:  
+```bash
+zip ouput.zip [filename] [-r folder_name]
+```
+to unzip use  
+```bash
+unzip file.zip [-d destination_folder]
+```
