@@ -5,11 +5,12 @@
 1. Given a positive integer number n, find the product/sum from 1 to n. Modify it to consider only even/odd number
 2. Make a number-guessing game. Also, print the number of tries at the end. Also, limit the maximum trial.
 3. Find first n Fibonacci numbers.
+4. Take any (multi digit) number and calculate the sum of its digits.
 4. Given a positive integer n, find its factorial.
+4. The 3n+1 problem/ [Collatz Conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture). Take a positive integer n, if its odd do 3n+1, otherwise in case of even divide it by 2. Perform this repeatedly and verify the number of sequence always reaches to 4->2->1.
 4. Given a positive integer n, print all prime numbers below or equal to n. Bonus: Use an efficient prime search algorithm.
 4. Given a positive integer n, find all its prime factors.
-4. The 3n+1 problem/ [Collatz Conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture). Take a positive integer n, if its odd do 3n+1, otherwise in case of even divide it by 2. Perform this repeatedly and verify the number of sequence always reaches to 4->2->1.
-5. Find max/min value of an array
+5. Find max/min value of an array.
 6. Sort an array: Bubble, Selection, and Insertion sort.
 7. Given three numbers a,b,c create an array of AP series with start value a, end value b, and common difference c. Also, create a GP series of the same.
 8. Given three numbers a,b,c, create an array of AP series with start value a, end value b, and total length c. Also, create a GP series of the same.
