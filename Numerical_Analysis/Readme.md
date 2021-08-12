@@ -57,4 +57,4 @@
 	1. Write Discrete Fourier Transform(DFT). Identify the frequency of a given sine wave.
 	2. Use Fast Fourier Transform(FFT). You can use a library interface like FFTW. Bonus: Code it yourself
 	3. Find the derivative of a function using Fourier transform.
-	4. Denoise a sample data using fourier transformation.
+	4. remove noise from a sample data using fourier transformation.
