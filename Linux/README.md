@@ -80,3 +80,9 @@ rsync -zarvm --include="*/" --include="*.sh" --exclude="*" "$from" "$to"
 ```
 find *** -exec bash -c '<command> "$0"' {} \;
 ```
+
+#### `rsync` only transfer certain files  
+search the list of files with `fd` (or `find`) and send it using `rsync`
+```bash
+fd <serach_pattern> | rsync -arvm --files-from=- $src $dst
+```
