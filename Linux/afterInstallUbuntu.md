@@ -55,7 +55,7 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 ### Install necessary packages
 ```bash
-sudo apt-get install ubuntu-restricted-extras vlc uget gfortran gnuplot python3-pip vim python-dev htop git gnome-tweak-tool openssh-server okular libatlas-base-dev liblapack-dev libblas-dev net-tools sqlite3 openmpi-bin
+sudo apt-get install ubuntu-restricted-extras vlc uget gfortran gnuplot python3-pip vim python-dev htop git gnome-tweak-tool openssh-server okular libatlas-base-dev liblapack-dev libblas-dev net-tools sqlite3 openmpi-bin curl
 ```
 
 
@@ -80,7 +80,7 @@ echo "deb https://apt.repos.intel.com/oneapi all main" | sudo tee /etc/apt/sourc
 ```bash 
 sudo apt install intel-basekit intel-hpckit 
 ```
-#### Setup oneApi
+#### Setup oneApi, activate environment
 run this command
 ```bash
 source /opt/intel/oneapi/setvars.sh
@@ -89,7 +89,20 @@ or add this to `~/.bashrc`
 ```bash
 . /opt/intel/oneapi/setvars.sh  &>/dev/null
 ```
-
+#### Selectively activate environment
+Save a configuration file e.g. save following,
+```
+default=exclude
+compiler=latest
+mkl=latest
+intelpython=latest
+mpi=latest
+```
+in a file named `configFile.txt`, and source the `setvars.sh`
+```
+source /opt/intel/oneapi/setvars.sh --config=configFile.txt &> /dev/null
+```
+to activate only C,C++,Fortran,Python and MPI.
 
 
 
@@ -124,8 +137,24 @@ source ~/.bashrc
 
 
 ### Random tweaks
+Set 12h clock format
 ```bash
 gsettings set org.gnome.desktop.interface clock-format 12h
+```
+Isolate application workspaces
+```bash
 gsettings set org.gnome.shell.extensions.dash-to-dock isolate-workspaces true
+```
+Show weekday in clock
+```bash
 gsettings set org.gnome.desktop.interface clock-show-weekday true
+```
+Show seconds in clock
+```bash
+gsettings set org.gnome.desktop.interface clock-show-seconds true
+```
+Set Ctrl-Tab to change tabs in terminal
+```bash
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ next-tab '<Primary>Tab'
+gsettings set org.gnome.Terminal.Legacy.Keybindings:/org/gnome/terminal/legacy/keybindings/ prev-tab '<Primary><Shift>Tab'
 ```
