@@ -11,6 +11,7 @@
 4. Given a positive integer n, print all prime numbers below or equal to n. Bonus: Use an efficient prime search algorithm.
 4. Given a positive integer n, find all its prime factors.
 4. Given two positive integer, find their GCD and LCM.
+4. Given a positive integer in decimal system, find its binary representation. Bonus: Convert a fraction from decimal to binary.
 5. Find max/min value of an array.
 6. Sort an array: Bubble, Selection, and Insertion sort.
 7. Given three numbers a,b,c create an array of AP series with start value a, end value b, and common difference c. Also, create a GP series of the same.
