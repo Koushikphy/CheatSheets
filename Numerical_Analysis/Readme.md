@@ -2,15 +2,16 @@
 ### Beginner to Advanced level.
 ---
 
-1. Given a positive integer number n, find the product/sum from 1 to n. Modify it to consider only even/odd number
-2. Make a number-guessing game. Also, print the number of tries at the end. Also, limit the maximum trial.
+1. Given a positive integer number n, find the product/sum from 1 to n. Modify it to consider only even/odd number.
+2. Make a number-guessing game. Print it the guessed number is too large or small in each step and print the number of tries at the end. Also, limit the maximum trial.
 3. Find first n Fibonacci numbers.
-4. Take any (multi digit) number and calculate the sum of its digits. So for input 3456, output should be 3+4+5+6=18
-4. Given a positive integer n, find its factorial.
+4. Given two positive integer, find their GCD and LCM.
 4. The 3n+1 problem/ [Collatz Conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture). Take a positive integer n, if its odd do 3n+1, otherwise in case of even divide it by 2. Perform this repeatedly and verify the number of sequence always reaches to 4->2->1.
+4. Take any (multi digit) number and calculate the sum of its digits. So for input 3456, output should be 3+4+5+6=18
+4. Take the above number and reverse it. So, for input 3456, output should be 6543.
+4. Given a positive integer n, find its factorial.
 4. Given a positive integer n, print all prime numbers below or equal to n. Bonus: Use an efficient prime search algorithm.
 4. Given a positive integer n, find all its prime factors.
-4. Given two positive integer, find their GCD and LCM.
 4. Given a positive integer in decimal system, find its binary representation. Bonus: Convert a fraction from decimal to binary.
 5. Find max/min value of an array.
 5. Reverse a given array.
