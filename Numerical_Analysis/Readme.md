@@ -5,7 +5,7 @@
 1. Given a positive integer number n, find the product/sum from 1 to n. Modify it to consider only even/odd number
 2. Make a number-guessing game. Also, print the number of tries at the end. Also, limit the maximum trial.
 3. Find first n Fibonacci numbers.
-4. Take any (multi digit) number and calculate the sum of its digits.
+4. Take any (multi digit) number and calculate the sum of its digits. So for input 3456, output should be 3+4+5+6=18
 4. Given a positive integer n, find its factorial.
 4. The 3n+1 problem/ [Collatz Conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture). Take a positive integer n, if its odd do 3n+1, otherwise in case of even divide it by 2. Perform this repeatedly and verify the number of sequence always reaches to 4->2->1.
 4. Given a positive integer n, print all prime numbers below or equal to n. Bonus: Use an efficient prime search algorithm.
@@ -13,13 +13,14 @@
 4. Given two positive integer, find their GCD and LCM.
 4. Given a positive integer in decimal system, find its binary representation. Bonus: Convert a fraction from decimal to binary.
 5. Find max/min value of an array.
+5. Reverse a given array.
 6. Sort an array: Bubble, Selection, and Insertion sort.
 7. Given three numbers a,b,c create an array of AP series with start value a, end value b, and common difference c. Also, create a GP series of the same.
 8. Given three numbers a,b,c, create an array of AP series with start value a, end value b, and total length c. Also, create a GP series of the same.
 9. Apply Sin/Cos to the grid created above, save in a file, and plot.
 10. Derive the same result as the previous question but use the series expansion formula for sin and cos. Hint: Use a threshold value to terminate the series.
 11. Use the result of the previous code to calculate the numerical derivative. Compare it with the actual.
-12. Find a histogram of a set of data points. Use the intrinsic or any other random number generator to create the set. Comment on the type of the distribution. If it is a uniform one, can you construct a normal distribution from this? Bonus: Prove Central Limit Theorem (CLT)
+12. Compute histogram of a set of data points. Use the intrinsic or any other random number generator to create the set. Comment on the type of the distribution from the histogram. Most of the intrinsic random number generators are uniform, can you construct a normal distribution from this? Bonus: Prove Central Limit Theorem (CLT). 
 13. Simulate a Random Walk problem and prove that the distance d traveled is proportional to sqrt(N), where N is number of steps
 14. Matrix operations:
 	1. Matrix Multiplication of same and unequal order. Bonus: Code the same without using any loop.
