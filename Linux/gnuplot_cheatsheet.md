@@ -1,3 +1,46 @@
+### Common gnuplot commands _Provided gnuplot version above 4.6_
+1. Check available gnuplot plot styles
+    ```bash 
+    test   
+    ```
+
+1. plot 'data.dat' file with column 1 and 2 as x and y axis, with lines+points
+    ```bash
+    plot 'data.dat' using 1:2 with linespoints 
+    p 'data.dat' u 1:2 w lp   #shorten version
+    ```
+
+1. set line type , sets the color and styles of lines and points
+    ```bash
+    p 'data.dat' u 1:2 w lp linetype 1  
+    p 'data.dat' u 1:2 w lp lt 1   # shorten version
+    ```
+
+1. sets color, width, dash of lines and size, type of points
+    ```bash
+    p 'data.dat' u 1:2 w lp linecolor 1 dashtype 1 linewidth 2 pointtype 2 pointsize 3 
+    p 'data.dat' u 1:2 w lp lc 1 dt 1 lw 2 pt 2 ps 3   # shorten version
+    ```
+
+1. set legend for the plot
+    ```bash
+    p 'data.dat' u 1:2 w lp title "my data"
+    p 'data.dat' u 1:2 w lp t "my data"     # shorten version
+    ```
+
+1. Set lables
+    ```bash
+    set xlabel/ylabel "My Axis" 
+    set xlabel/ylabel "My Axis" font "Haveltica,20"  # set font as Haveltica, with size 20
+    set xlabel/ylabel "My Axis" font "Haveltica,20" rotate by 90  # rotate the lable by 90 degree
+    ```
+
+
+
+
+
+
+
 ## GnuPlot Cheatsheet
 1. __multiple Data sets and data blocks__:
 In multi data set file the data sets are seperated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatevely, data blocks are seperated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data
@@ -42,3 +85,6 @@ In multi data set file the data sets are seperated with _two_ blank lines. The d
 
 1. Check available gnuplot plots/styles  
     Run `test` in gnuplot terminal
+
+
+
