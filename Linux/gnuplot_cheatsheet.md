@@ -10,6 +10,13 @@
     p 'data.dat' u 1:2 w lp   #shorten version
     ```
 
+1. Plot multiple lines
+    ```bash
+    p 'data.dat' u 1:2 w lp, 'data.dat' u 1:3 w lp
+    p 'data.dat' u 1:2 w lp, '' u 1:3 w lp # can skip the 2nd file name if its the same as the first one
+    ```
+
+
 1. set line type , sets the color and styles of lines and points
     ```bash
     p 'data.dat' u 1:2 w lp linetype 1  
