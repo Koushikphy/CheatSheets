@@ -10,6 +10,13 @@
     p 'data.dat' u 1:2 w lp   #shorten version
     ```
 
+1. plot 2D data file 'data.dat' with column 1,2, and 3 and x,y,z axis. 2D data means the data in in blocks of the x axis
+    ```bash
+    splot 'data.dat' u 1:2 w lp  
+    sp 'data.dat' u 1:2 w lp   #shorten version
+    ```
+
+
 1. Plot multiple lines
     ```bash
     p 'data.dat' u 1:2 w lp, 'data.dat' u 1:3 w lp
