@@ -49,6 +49,13 @@
     set xlabel/ylabel "My Axis" font "Haveltica,20" rotate by 90  # rotate the lable by 90 degree
     ```
 
+1. Set Ranges
+    ```bash
+    set xrange/yrange [1:2] # set xrange or yrange from 1-2
+    se xr/yr [1:2]          # shorten version
+    se xr/yr [:2]           # set only maximum value of xrange or yrange
+    pl [1:2][3:4] 'data.dat'# plot 'data.dat' with xrange 1-2 and yrange 3-4
+    ```
 
 
 

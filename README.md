@@ -11,3 +11,4 @@ A collection of random computer codes, commands and cheat sheets
 ## Programming
 1. [Numerical Analysis Problems](Numerical_Analysis/Readme.md)
 2. [GnuPlot Cheatsheet](Linux/gnuplot_cheatsheet.md)
+3. [MPI Cheatsheet](Linux/MPICheatSheet.md)

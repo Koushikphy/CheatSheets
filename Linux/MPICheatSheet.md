@@ -3,15 +3,20 @@
 #### Setup
 ```fortran 
     call MPI_INIT(ierr)
+
+    !!!!!!!!!!!!!!
+    ! Codes
+    !!!!!!!!!!!!!!
+
     call MPI_FINALIZE(ierr)
     ! `ierr` is the return code for the call, of type integer. All MPI routines in Fortran has an error code as last argument 
 ```
 
 #### Basic information
 ```fortran
-    call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierr) ! rank: rank/id of current process
-    call MPI_COMM_SIZE(MPI_COMM_WORLD, num_procs, ierr) !num_procs: total number of process
-    call MPI_GET_PROCESSOR_NAME(pName, nresLen, ierr)   ! get name of the host for current process
+    call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierr)      ! rank: rank/id of current process
+    call MPI_COMM_SIZE(MPI_COMM_WORLD, num_procs, ierr) ! num_procs: total number of process
+    call MPI_GET_PROCESSOR_NAME(pName, nresLen, ierr)   ! pName: name of the host for current process
 ```
 
 #### Communication
