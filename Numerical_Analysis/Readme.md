@@ -18,10 +18,10 @@
 6. Sort an array: Bubble, Selection, and Insertion sort.
 7. Given three numbers a,b,c create an array of AP series with start value a, end value b, and common difference c. Also, create a GP series of the same.
 8. Given three numbers a,b,c, create an array of AP series with start value a, end value b, and total length c. Also, create a GP series of the same.
-9. Apply Sin/Cos to the grid created above, save in a file, and plot.
+9. Create an equispaced grid of 0 to 2*pi. Apply Sin/Cos to the grid, save the result in a file, and plot.
 10. Derive the same result as the previous question but use the series expansion formula for sin and cos. Hint: Use a threshold value to terminate the series.
-11. Use the result of the previous code to calculate the numerical derivative. Compare it with the actual.
-12. Compute histogram of a set of data points. Use the intrinsic or any other random number generator to create the set. Comment on the type of the distribution from the histogram. Most of the intrinsic random number generators are uniform, can you construct a normal distribution from this? Bonus: Prove Central Limit Theorem (CLT). 
+11. Use the result of the previous code and calculate it's numerical derivative. Compare it with the actual (i.e derivative of sin must be cos and vice versa).
+12. Use intrinsic (or any other) random number generator to create a set of data points. Compute histogram of that set. Comment on the type of the distribution from the histogram. Bonus: Most of the intrinsic random number generators are uniform, can you construct a normal distribution from this? Prove Central Limit Theorem (CLT). 
 13. Simulate a Random Walk problem and prove that the distance d traveled is proportional to sqrt(N), where N is number of steps
 14. Matrix operations:
 	1. Matrix Multiplication of same and unequal order. Bonus: Code the same without using any loop.
@@ -38,7 +38,7 @@
 	2. Bisection method.
 	3. Fixed point iteration
 	4. Secant and Newton-Raphson method. Also, find multiple roots/ roots of a polynomial with the latter. Also, find complex roots.
-	5. Solve the system of linear equations with the exact solution. Tip: Use Gauss-Jordon elimination. Bonus & Advanced: solve a over/underdetermined system of equations.
+	5. Solve the system of linear equations with the exact solution. Tip: Use Gauss-Jordon elimination. Bonus: solve a over/underdetermined system of equations.
 16. Regression and Least-squares methods:
 	1. Linear.
 	2. Quadratic
