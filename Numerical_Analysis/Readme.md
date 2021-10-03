@@ -18,12 +18,13 @@
 6. Sort an array: Bubble, Selection, and Insertion sort.
 7. Given three numbers a,b,c create an array of AP series with start value a, end value b, and common difference c. Also, create a GP series of the same.
 8. Given three numbers a,b,c, create an array of AP series with start value a, end value b, and total length c. Also, create a GP series of the same.
-9. Create an equispaced grid of 0 to 2*pi. Apply Sin/Cos to the grid, save the result in a file, and plot.
+9. Create an equispaced grid of 0 to 2&pi;. Apply Sin/Cos to the grid, save the result in a file, and plot.
 10. Derive the same result as the previous question but use the series expansion formula for sin and cos. Hint: Use a threshold value to terminate the series.
 11. Use the result of the previous code and calculate it's numerical derivative. Compare it with the actual (i.e derivative of sin must be cos and vice versa).
 12. Use intrinsic (or any other) random number generator to create a set of data points. Compute histogram of that set. Comment on the type of the distribution from the histogram. Bonus: Most of the intrinsic random number generators are uniform, can you construct a normal distribution from this? Prove Central Limit Theorem (CLT). 
-13. Simulate a Random Walk problem and prove that the distance d traveled is proportional to sqrt(N), where N is number of steps
-14. Matrix operations:
+13. Estimate the value of &pi; with [Monte Carlo method](https://en.wikipedia.org/wiki/Monte_Carlo_method#Overview).
+14. Simulate a Random Walk problem and prove that the distance d traveled is proportional to sqrt(N), where N is number of steps
+15. Matrix operations: 
 	1. Matrix Multiplication of same and unequal order. Bonus: Code the same without using any loop.
 	2. Determinant of 3x3 matrix
 	3. Transpose of a matrix
@@ -33,31 +34,31 @@
 	7. Inverse of N-order square matrix
 	8. Iterative method to find eigen value: Power iteration etc.
 	9. Bonus: Singular Value Decomposition (SVD)
-15. Equation solving:
+16. Equation solving:
 	1. Calculate the roots of a quadratic equation.
 	2. Bisection method.
 	3. Fixed point iteration
 	4. Secant and Newton-Raphson method. Also, find multiple roots/ roots of a polynomial with the latter. Also, find complex roots.
 	5. Solve the system of linear equations with the exact solution. Tip: Use Gauss-Jordon elimination. Bonus: solve a over/underdetermined system of equations.
-16. Regression and Least-squares methods:
+17. Regression and Least-squares methods:
 	1. Linear.
 	2. Quadratic
 	3. N-th order polynomial regression.
     4. Bonus & Advanced: Lavenberg-Marquardt algorithm to fit nonlinear equation.
-17. Numerical Integration:
+18. Numerical Integration:
 	1. Trapezoidal
 	2. Simpson 1/3rd rule
 	3. Bonus: Gaussian Quadrature
-18. Interpolation
+19. Interpolation
 	1. Newton's divided difference method
 	2. Lagrange interpolation
 	3. Spline: Quadratic and Cubic.
-19. Differential equation solution (ODE): Initial Value Problems (IVP).
+20. Differential equation solution (ODE): Initial Value Problems (IVP).
 	1. Euler method
 	2. Runge-Kutta 2nd order
 	3. Runge-Kutta 4nd order
 	4. Bonus & Advanced: Boundary Value Problems (BVP) Shooting method. Partial Differential Equations (PDE)
-20. Fourier transform:
+21. Fourier transform:
 	1. Write Discrete Fourier Transform(DFT). Identify the frequency of a given sine wave.
 	2. Use Fast Fourier Transform(FFT). You can use a library interface like FFTW. Bonus: Code it yourself
 	3. Find the derivative of a function using Fourier transform.
