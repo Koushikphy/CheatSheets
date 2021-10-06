@@ -107,5 +107,17 @@ In multi data set file the data sets are seperated with _two_ blank lines. The d
     ```
 
 
+1. loops
+* Inlined `for` loop (gnuplot 4.4+)
+```bash
+plot for [i=1:1000] 'data'.i.'.txt' using 1:2 title 'Data='.i
+```
 
+
+* Explicit `do-for` loop (gnuplot 4.6+):
+```bash
+do for [i=0:4] {
+    plot 'data'.i.'.txt' using 1:2 title 'Data='.i
+}
+```
 
