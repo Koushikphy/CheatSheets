@@ -13,20 +13,12 @@ sed -n 'm,np' file
 sudo date -s "$(wget -qSO- --max-redirect=0 google.in 2>&1 | grep Date: | cut -d' ' -f5-8)Z"
 ```
 
-#### vi open multiple files simultaneously
-```
-vi FILE1 FILE2 ... -O/-o
-```
 
 #### bash print two file side by side 
 ```
 pr FILE1 FILE2 -m 
 ```
-<!-- 
-#### bash follow a file every N seconds
-```
-watch -n N FILE
-``` -->
+
 
 #### tree with file size
 ```
@@ -41,7 +33,7 @@ sed -i "s/string/replace/g" file
 sudo iotop
 ```
 
-#### Pass output to a argument
+#### use function with `xargs`
 ```
 moveRun() {
   cwd=$(pwd)
@@ -60,14 +52,14 @@ tail -f outputfile | xargs -IL date +"%I:%M:%S %p"
 ```
 
 
-
 #### Quickly benchmark file I/O speed
 ```
 dd if=/dev/zero of=/tmp/output conv=fdatasync bs=384k count=1k; rm -f /tmp/output
 ```
+
 #### Check location of some running command
 ```
-ls -l /proc/<proc_id>/fd
+ls -l /proc/<proc_id>/exe
 ```
 
 #### rsync only copy file with certain extension
@@ -76,10 +68,6 @@ copy files only with `.sh` [extension](https://stackoverflow.com/questions/11111
 rsync -zarvm --include="*/" --include="*.sh" --exclude="*" "$from" "$to"
 ```
 
-#### Run command with `find`
-```
-find *** -exec bash -c '<command> "$0"' {} \;
-```
 
 #### `rsync` only transfer certain files  
 search the list of files with `fd` (or `find`) and send it using `rsync`
