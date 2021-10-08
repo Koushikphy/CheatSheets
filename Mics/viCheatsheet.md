@@ -5,10 +5,8 @@
 | `:q`      | Quit file       |
 | `:q!`   | Quit without saving changes        |
 | `:w`   | Save changes to file        |
-| `:wq`   | Save changes and exit        |
+| `:wq`  <br> `:x` <br> `Shift+ZZ`| Save changes and exit        |
 | `:wqa`   | Save changes and exit all  tabs        |
-| `:x`   | Save changes and exit        |
-| `Shift+ZZ`   | Save changes and exit        |
 |`i` |insert before the cursor|
 |`I` |insert at the beginning of the line|
 |`a` |insert (append) after the cursor|
