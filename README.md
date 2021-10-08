@@ -13,3 +13,4 @@ A collection of random computer codes, commands and cheat sheets
 2. [GnuPlot Cheatsheet](Mics/gnuplot_cheatsheet.md)
 3. [MPI Cheatsheet](Mics/MPICheatSheet.md)
 3. [Vi/Vim Cheatsheet](Mics/viCheatsheet.md)
+3. [Matplotlib Cheatsheet](Mics/matplotlibCheatSheet.md)
