@@ -61,9 +61,42 @@ _Provided gnuplot version above 4.6_
     pl [1:2][3:4] 'data.dat'# plot 'data.dat' with xrange 1-2 and yrange 3-4
     ```
 
+1. Set ticks
+    ```bash
+    set xtics 5  # Set x-axis tics with interval of 5
+    set xtics 0,.5,10  # Set x-axis tics between 0 to 10, with increment of 0.5
+    set xtics ("low" 0, "medium" 50, "high" 100) # set xtics at xaxis position 0,50 and 100, with labels "low", "medium" and "high"
+    set xtics ("average" 30 )  # set xtics at 30 with label "average" in addition to already existing tics
+    set format x '%.2f'    # set xtics lable format as 2 decimal places
+    set mxtics 5 # set minor 5 minor xtics (in between major each xtics)
+    # same syntax applies to ytics, ztics, x2tics, y2tics and cbtics
+    ```
 
 
 
+1. Set legend
+    ```bash
+    pl "data.dat" u 1:2 w l title "my data" # plot "data.dat" with "my data" as legend
+    set key    # show legned (defult)
+    unset key  # hides legend
+    set key inside  # set legend inside the plot (default)
+    set key outside # set key outside the plot
+    set key right top  # set key at top right corner (default)
+    set key {left | right | center} {top | bottom | center} # set key at any of there combination only valide for `inside`  mode
+    set key {above | below} # set key above of below the plot, valid only for `outside` mode.
+    set key at 5,5  # set key at coordinate at 5,5
+    set key box 3   # Put a box around legend with line type 3
+    set key reverse # Put legend text after the line symbol
+    set key width 5  # set legend column width as 5
+    ```
+
+
+
+1. Multiple y-axis
+    ```bash
+    plot "data1.dat" u 1:2 w l axes x1y1, "data2.dat" u 1:2 w l axes x1y2 
+    # plot "data1.dat" on x axes 1 and y axes 1 i.e. use bottom and left axes for x and y respectevely, and use "data.dat" with right axes as y axes. All the ranges, labels etc for the 2nd y axes can be controlled with y2range and y2label
+    ```
 
 
 
@@ -121,3 +154,8 @@ do for [i=0:4] {
 }
 ```
 
+
+
+
+### Reference
+1. Gnuplot website : http://www.gnuplot.info/
