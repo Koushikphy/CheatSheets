@@ -3,7 +3,7 @@
 ---
 
 1. Given a positive integer number n, find the product/sum from 1 to n. Modify it to consider only even/odd number.
-2. Make a number-guessing game. Print it the guessed number is too large or small in each step and print the number of tries at the end. Also, limit the maximum trial.
+2. Make a number-guessing game. Print if the guessed number is too large or small in each step and print the number of tries at the end. Also, limit the maximum trial.
 3. Find first n Fibonacci numbers.
 4. Given two positive integer, find their GCD and LCM.
 4. The 3n+1 problem/ [Collatz Conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture). Take a positive integer n, if its odd do 3n+1, otherwise in case of even divide it by 2. Perform this repeatedly and verify the number of sequence always reaches to 4->2->1.

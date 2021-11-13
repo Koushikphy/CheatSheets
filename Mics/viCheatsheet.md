@@ -46,6 +46,7 @@
 |`N`|Go to previos search result|
 |`:%s/old/new/g`| Replace all occurance of `old` with `new`|
 |`:%s/old/new/gc`| Replace all occurance of `old` with `new` but ask for conirmation|
+|`:w !sudo tee "%"`|Save file as root after editing as non-root|
 
 
 
