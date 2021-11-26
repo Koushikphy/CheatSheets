@@ -147,12 +147,28 @@ plot for [i=1:1000] 'data'.i.'.txt' using 1:2 title 'Data='.i
 ```
 
 
-* Explicit `do-for` loop (gnuplot 4.6+):
+* Explicit `do-for` loop (gnuplot 4.6+)
 ```bash
 do for [i=0:4] {
     plot 'data'.i.'.txt' using 1:2 title 'Data='.i
 }
 ```
+
+* looping over a string of words
+```bash
+ll='0 1 2 3 4'
+do for [i in ll] {
+    plot 'data'.i.'.txt' using 1:2 title 'Data='.i
+}
+```
+
+
+1. Call system commands:  
+Use `system` command to call any terminal/system commands, e.g. to list all `.txt` file in directory
+```bash
+system('ls *.txt')
+```
+This is useful when working with loop to loop through/plot all related files in a directory.
 
 
 
