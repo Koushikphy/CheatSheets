@@ -5,8 +5,9 @@
 | `:q`      | Quit file       |
 | `:q!`   | Quit without saving changes        |
 | `:w`   | Save changes to file        |
-| `:wq`  <br> `:x` <br> `Shift+ZZ`| Save changes and exit        |
+| `:wq`  <br> `:x` <br> `ZZ (shift+zz)`| Save changes and exit        |
 | `:wqa`   | Save changes and exit all  tabs        |
+|`:x` | Save file with encryption|
 |`i` |insert before the cursor|
 |`I` |insert at the beginning of the line|
 |`a` |insert (append) after the cursor|
@@ -15,7 +16,8 @@
 |`O` |append (open) a new line above the current line|
 |`:sp file`| Open `file` in a horizontal split |
 |`:vsp file`|  Open `file` in a vertical split |
-|`Ctrl+ww`|  Switch between currently opened files |
+|`Ctrl+ww`|  Switch between currently opened files in splits |
+|`g-t`|  Switch between currently opened files in tabs |
 | `dd`   | Delete the current line        |
 | `D`   | Delete the rest of the line on the right of the cursor        |
 | `7dd`   | Delete next 7 line        |
@@ -40,20 +42,25 @@
 |`Ctrl+r`|Re do |
 |`>>`| indent (move right) line one shiftwidth|
 |`<<`| de-indent (move left) line one shiftwidth|
+|`Ctrl+n`| Show autocomplete suggestion |
+|`gi`| Go to last edited position |
 |`/pattern`|Search for `pattern`|
 |`*`|Search the current word under cursor|
 |`n`|Go to next search result|
 |`N`|Go to previos search result|
 |`:%s/old/new/g`| Replace all occurance of `old` with `new`|
 |`:%s/old/new/gc`| Replace all occurance of `old` with `new` but ask for conirmation|
+|`:w !sudo tee "%"`|Save file as root after editing as non-root|
 
 
 
-### vi open multiple files simultaneously
-```
-vi FILE1 FILE2 ... -O/-o
-```
-similar to using `:sp` or `:vsp` in vi command mode
+### vi command line flags
+| Command      | Description |
+| ----------- | ----------- |
+| `vi -o file1 file2`      | Open files in horaizontal split       |
+| `vi -o file1 file2`      | Open files in vertical split       |
+| `vi -p file1 file2`      | Open files in tabs       |
+| `vi -x file1`      | Open file with encryption       |
 
 
 ### Open vi directly to a line number:
