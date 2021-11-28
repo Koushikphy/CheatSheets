@@ -100,9 +100,12 @@ _Provided gnuplot version above 4.6_
 
 
 
-1. __multiple Data sets and data blocks__:
-In multi data set file the data sets are seperated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatevely, data blocks are seperated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data
 
+1. __multiple Data sets and data blocks__:
+In multi data set file the data sets are seperated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatevely, data blocks are seperated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data  
+
+    **Data Sets** : *Data seperated by two blank lines*.  
+    **Data Blocks**: *Data seperated by one blank lines*.  
 
 
 1. __Plot part of a file__ :  
@@ -141,34 +144,34 @@ In multi data set file the data sets are seperated with _two_ blank lines. The d
 
 
 1. loops
-* Inlined `for` loop (gnuplot 4.4+)
-```bash
-plot for [i=1:1000] 'data'.i.'.txt' using 1:2 title 'Data='.i
-```
+    * Inlined `for` loop (gnuplot 4.4+)
+    ```bash
+    plot for [i=1:1000] 'data'.i.'.txt' using 1:2 title 'Data='.i
+    ```
 
 
-* Explicit `do-for` loop (gnuplot 4.6+)
-```bash
-do for [i=0:4] {
-    plot 'data'.i.'.txt' using 1:2 title 'Data='.i
-}
-```
+    * Explicit `do-for` loop (gnuplot 4.6+)
+    ```bash
+    do for [i=0:4] {
+        plot 'data'.i.'.txt' using 1:2 title 'Data='.i
+    }
+    ```
 
-* looping over a string of words
-```bash
-ll='0 1 2 3 4'
-do for [i in ll] {
-    plot 'data'.i.'.txt' using 1:2 title 'Data='.i
-}
-```
+    * looping over a string of words
+    ```bash
+    ll='0 1 2 3 4'
+    do for [i in ll] {
+        plot 'data'.i.'.txt' using 1:2 title 'Data='.i
+    }
+    ```
 
 
 1. Call system commands:  
-Use `system` command to call any terminal/system commands, e.g. to list all `.txt` file in directory
-```bash
-system('ls *.txt')
-```
-This is useful when working with loop to loop through/plot all related files in a directory.
+    Use `system` command to call any terminal/system commands, e.g. to list all `.txt` file in directory
+    ```bash
+    system('ls *.txt')
+    ```
+    This is useful when working with loop to loop through/plot all related files in a directory.
 
 
 
