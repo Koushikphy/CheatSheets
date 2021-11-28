@@ -1,5 +1,5 @@
 ## Compress files
-Using `gzip`: 
+### Using `gzip`: 
 
 ```bash
 gzip -kv -6 <filename>
@@ -22,7 +22,7 @@ For parallel gzip use https://zlib.net/pigz/
 
 
 ---
-Using `xz`:  
+### Using `xz`:  
 `xz`(`lzma` compression) is better alternative to `gzip` use it with 
 ```bash
 xz -k -6 -T 3 --verbose <file>
@@ -43,8 +43,8 @@ Useful utilities:
 
 ---
 ## Compress folder/directory  
-Using `tar`:   
-`tar` by itself only archive multiple files or folder into one single file and doesn't compress anything. Then other compression utilities are used to compress the file. Gnu `tar` can handle this whole process on its own.
+### Using `tar`:   
+`tar` by itself only archive multiple files or folder into one single file and doesn't compress anything. Then other compression utilities are used to compress the file. Gnu `tar` can handle this whole process on its own. To compress the `sample-folder` into `archive.tar.gz`
 ```bash
 tar -zcvf archive.tar.gz sample-folder
 ```
@@ -55,13 +55,13 @@ tar -zcvf archive.tar.gz sample-folder
 `-j` : Use `bzip2` utility  
 `-J` : Use `xz` utility  
 `-I` : Specify compression utility, `-I 'gzip -6'` is same as `-z`  
-To decompress the file into the folder again replace the create (`-f`) with extract (`-x`) flag use
+To decompress the file into the folder again replace the create (`-c`) with extract (`-x`) flag use
 ```bash
 tar -zxvf archive.tar.gz
 ```  
 
 
-Using `zip`:  
+### Using `zip`:  
 ```bash
 zip ouput.zip [filename] [-r folder_name]
 ```
