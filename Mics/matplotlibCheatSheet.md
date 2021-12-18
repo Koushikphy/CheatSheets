@@ -25,9 +25,15 @@ ax.set_xlabel('y (\AA)$ ', fontsize=21)
 ax.set_ylabel('x', fontsize=21)
 
 
+# set axis tics properties
 ax.tick_params(axis='both', which='major', labelsize=13)
 ax.tick_params(axis='both', which='minor', labelsize=8)
 
+
+ax.set_xticks(xTickArr)
+ax.set_xticklabels(xLabelsArr)
+ax.set_yticks(xTickArr)
+ax.set_yticklabels(xLabelsArr)
 
 plt.show()
 ```
@@ -42,6 +48,10 @@ fig,ax = plt.subplots(figsize=(12,6),dpi=100)
 # Plot two plot side by side
 fig, axes = plt.subplots(nrows=1, ncols=2)
 #^ `axes` now a list of two axis objects, each can be used like before to plot 
+
+# remove unwanted margins, after plotting everythings
+fig.tight_layout()
+
 
 # save figure
 fig.savefig("filename.png", dpi=200)
@@ -74,4 +84,26 @@ ax.plot(x, x+16,
     markerfacecolor="yellow", 
     markeredgewidth=3, 
     markeredgecolor="green")
+```
+
+
+### Annotation/Text:
+
+#### Text with arrow
+
+```python
+ax.annotate('Label', 
+    xy=(x, y), 
+    xytext=(x, y), 
+    rotation=90, 
+    fontsize=15, fontweight='bold', fontstyle='italic', family="Times New Roman"
+    bbox=dict( boxstyle='round',facecolor='white'), 
+    arrowprops=dict(facecolor='black', shrink=0.05, width=1,headwidth=10),
+)
+```
+
+#### Matplotlib arrow
+```python
+# Arrow goes from (x,y) to (x+dx,y+dy)
+plt.arrow(x,y,dx,dy,head_width=.8, head_length=2, length_includes_head=True,color='black')
 ```
