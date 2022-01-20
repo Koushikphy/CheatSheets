@@ -20,9 +20,9 @@ ax.legend( fontsize=13)
 ax.set_xlim([0,6])
 ax.set_ylim([-.5,18])
 
-# set axes labels
-ax.set_xlabel('y (\AA)$ ', fontsize=21)
-ax.set_ylabel('x', fontsize=21)
+# set axes labels, labelpad is offset of the label from the axis
+ax.set_xlabel('y (\AA)$ ', fontsize=21, labelsize=10)
+ax.set_ylabel('x', fontsize=21, labelsize=10)
 
 
 # set axis tics properties
@@ -85,6 +85,44 @@ ax.plot(x, x+16,
     markeredgewidth=3, 
     markeredgecolor="green")
 ```
+
+
+### Contours
+#### Line Contour:
+```python
+fig, ax0 = plt.subplots(1)
+levels = np.unique(np.percentile(z,np.linspace(0,100,20)))
+# levels is any monotonically increasing array to specify the contour level, 
+# the percentile is a quick way to calculate some proper levels for the data
+cp = ax0.contour(x, y, z, levels = levels, linewidths=1.3,colors='black')#, linestyles='solid')
+# x,y,z are all 2D arrays for surface plot data
+ax0.clabel(cp, inline=True,manual=True,inline_spacing=1,fontsize=13,fmt='%.3f')
+# manual True means you have to manually specify the contour label position by clicking on it
+
+# if you want to use legend with the contour plot, useful for multiple surface contour 
+lines = [ cp.collections[0]]
+labels = ['sample data']
+plt.legend(lines, labels, fontsize=15 )
+```
+
+#### Filled Contour:
+<!--  -->
+```python
+cp = ax0.contourf(x, y, z,levels = levels, cmap='RdYlGn_r', norm=matplotlib.colors.BoundaryNorm(levels,256))
+# x,y,z are 2D array for surface data
+# levels is a monotonically increasing array
+# choose any of the available `cmap`s
+# Chose a `norm` type for proper color normalization appropriate for the current data https://matplotlib.org/stable/tutorials/colors/colormapnorms.html
+
+# put a color bar for the filled contour
+cbar = plt.colorbar(cp,ticks=levels, orientation='verticle')
+cbar.ax.set_yticklabels([ '{:.2f}'.format(i) for i in levels]) 
+# use xtickslables for horaizontal colorbar
+cbar.ax.tick_params(labelsize=15)
+cbar.ax.get_yaxis().labelpad = 30
+cbar.ax.set_ylabel('Energy (eV)', rotation=270,fontsize=25)
+```
+
 
 
 ### Annotation/Text:

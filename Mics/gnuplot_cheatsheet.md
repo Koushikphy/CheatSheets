@@ -46,7 +46,7 @@ _Provided gnuplot version above 4.6_
     p 'data.dat' u 1:2 w lp t "my data"     # shorten version
     ```
 
-1. Set lables
+1. Set axis lables
     ```bash
     set xlabel/ylabel "My Axis" 
     set xlabel/ylabel "My Axis" font "Haveltica,20"  # set font as Haveltica, with size 20
@@ -72,6 +72,12 @@ _Provided gnuplot version above 4.6_
     # same syntax applies to ytics, ztics, x2tics, y2tics and cbtics
     ```
 
+1. Set texts/labels 
+    ```bash
+    set label 1 "A" at 1,1 "Haveltica,20" {pt <pointstyle>} {front|back}
+    # use different tag (i.e. `1` after label) for different label
+    # for 3D use 3 postion coordinates
+    ```
 
 
 1. Set legend
