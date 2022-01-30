@@ -74,3 +74,30 @@ search the list of files with `fd` (or `find`) and send it using `rsync`
 ```bash
 fd <serach_pattern> | rsync -avm  --progress --stats --files-from=- . $dst
 ```
+
+#### size of the current directory
+```
+du -shx
+```
+
+#### size of folders in current directory
+```bash
+du -d1 -h
+du -d1 -h | sort -h   # sort according to size
+```
+
+#### list all files with size greater than 1GB
+```bash
+fd -S +1G
+```
+
+#### total size of all files named `data.dat`
+```bash
+fd data.dat -X du -ch
+fd -e txt -X du -ch    # files with `txt` extension
+```
+
+#### compress all `.txt` files with `xz`
+```bash
+fd -e txt -j 1 -x xz # -j 1 wll launch one instance of `xz`
+```
