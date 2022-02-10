@@ -1,4 +1,4 @@
-### MPI Chetacheet for Fortran
+### MPI Cheatsheet for Fortran
 
 #### Setup
 ```fortran 
@@ -54,7 +54,7 @@ Distribute chunks of array of unequal length to different processes and collect 
     call MPI_Scatterv(arrayMain,counts,displ,MPI Datatype,arrayChunks,mycounts,MPI Datatype,source,MPI_COMM_WORLD,ierr)
     call MPI_Gatherv(arrayChunks,mycounts,MPI Datatype,arrayMain,counts,displ,MPI Datatype,destination,MPI_COMM_WORLD,ierr)
 
-    ! counts : array of chunksizes, that will be distibuted.
+    ! counts : array of chunksizes, that will be distributed.
     ! mycounts : size of the received chunk of array in the current process
     ! displ : Start index of different chunks in the main array.
 ```

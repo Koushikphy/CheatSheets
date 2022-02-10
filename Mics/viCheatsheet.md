@@ -1,4 +1,4 @@
-## vi commnads
+## vi commands
 
 | Command      | Description |
 | ----------- | ----------- |
@@ -47,9 +47,9 @@
 |`/pattern`|Search for `pattern`|
 |`*`|Search the current word under cursor|
 |`n`|Go to next search result|
-|`N`|Go to previos search result|
-|`:%s/old/new/g`| Replace all occurance of `old` with `new`|
-|`:%s/old/new/gc`| Replace all occurance of `old` with `new` but ask for conirmation|
+|`N`|Go to previous search result|
+|`:%s/old/new/g`| Replace all occurrence of `old` with `new`|
+|`:%s/old/new/gc`| Replace all occurrence of `old` with `new` but ask for confirmation|
 |`:w !sudo tee "%"`|Save file as root after editing as non-root|
 
 
@@ -57,7 +57,7 @@
 ### vi command line flags
 | Command      | Description |
 | ----------- | ----------- |
-| `vi -o file1 file2`      | Open files in horaizontal split       |
+| `vi -o file1 file2`      | Open files in horizontal split       |
 | `vi -o file1 file2`      | Open files in vertical split       |
 | `vi -p file1 file2`      | Open files in tabs       |
 | `vi -x file1`      | Open file with encryption       |

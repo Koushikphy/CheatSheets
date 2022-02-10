@@ -50,7 +50,7 @@ _Provided gnuplot version above 4.6_
     ```bash
     set xlabel/ylabel "My Axis" 
     set xlabel/ylabel "My Axis" font "Haveltica,20"  # set font as Haveltica, with size 20
-    set xlabel/ylabel "My Axis" font "Haveltica,20" rotate by 90  # rotate the lable by 90 degree
+    set xlabel/ylabel "My Axis" font "Haveltica,20" rotate by 90  # rotate the label by 90 degree
     ```
 
 1. Set Ranges
@@ -76,19 +76,19 @@ _Provided gnuplot version above 4.6_
     ```bash
     set label 1 "A" at 1,1 "Haveltica,20" {pt <pointstyle>} {front|back}
     # use different tag (i.e. `1` after label) for different label
-    # for 3D use 3 postion coordinates
+    # for 3D use 3 position coordinates
     ```
 
 
 1. Set legend
     ```bash
     pl "data.dat" u 1:2 w l title "my data" # plot "data.dat" with "my data" as legend
-    set key    # show legned (defult)
+    set key    # show legend (default)
     unset key  # hides legend
     set key inside  # set legend inside the plot (default)
     set key outside # set key outside the plot
     set key right top  # set key at top right corner (default)
-    set key {left | right | center} {top | bottom | center} # set key at any of there combination only valide for `inside`  mode
+    set key {left | right | center} {top | bottom | center} # set key at any of there combination only valid for `inside`  mode
     set key {above | below} # set key above of below the plot, valid only for `outside` mode.
     set key at 5,5  # set key at coordinate at 5,5
     set key box 3   # Put a box around legend with line type 3
@@ -101,27 +101,27 @@ _Provided gnuplot version above 4.6_
 1. Multiple y-axis
     ```bash
     plot "data1.dat" u 1:2 w l axes x1y1, "data2.dat" u 1:2 w l axes x1y2 
-    # plot "data1.dat" on x axes 1 and y axes 1 i.e. use bottom and left axes for x and y respectevely, and use "data.dat" with right axes as y axes. All the ranges, labels etc for the 2nd y axes can be controlled with y2range and y2label
+    # plot "data1.dat" on x axes 1 and y axes 1 i.e. use bottom and left axes for x and y respectively, and use "data.dat" with right axes as y axes. All the ranges, labels etc for the 2nd y axes can be controlled with y2range and y2label
     ```
 
 
 
 
 1. __multiple Data sets and data blocks__:
-In multi data set file the data sets are seperated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatevely, data blocks are seperated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data  
+In multi data set file the data sets are separated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatively, data blocks are separated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data  
 
-    **Data Sets** : *Data seperated by two blank lines*.  
-    **Data Blocks**: *Data seperated by one blank lines*.  
+    **Data Sets** : *Data separated by two blank lines*.  
+    **Data Blocks**: *Data separated by one blank lines*.  
 
 
 1. __Plot part of a file__ :  
     __index command__:
-    Plot part of a mulit data set file using index command.To plot the 3rd index of a multi-dataset file use, (index starts from 0)
+    Plot part of a multi data set file using index command.To plot the 3rd index of a multi-dataset file use, (index starts from 0)
     ```
     plot 'file' index 2
     ```
 
-    __every command__: A Very powerful gnuplot commnad where you can specify differnt part of a single data sets,
+    __every command__: A Very powerful gnuplot command where you can specify different part of a single data sets,
 
     `every I:J:K:L:M:N`	  
     *    `I`	Line increment  
@@ -143,7 +143,7 @@ In multi data set file the data sets are seperated with _two_ blank lines. The d
 
 
     __with bash command__
-    Bash commands can be used inside the gnuplot plot function to modify/fiter data directly. e.g. to plot using only first n rows of the data file.
+    Bash commands can be used inside the gnuplot plot function to modify/filter data directly. e.g. to plot using only first n rows of the data file.
     ```
     pl '< head -n file'
     ```
@@ -187,7 +187,7 @@ In multi data set file the data sets are seperated with _two_ blank lines. The d
 f(x) = a*exp(-b*x**2)   # define the curve you want to fit
 a=1;b=1                 # set initial values of the parameter
 fit f(x) 'data.dat' u 1:2 via a,b  # fit 1,2 column, as x and f(x), of the file `data.dat` by varying the parameter `a`, `b`
-pl 'data.dat' u 1:2 w l, f(x)      # plot the fitted function for comparison, note `a`, `b` will be used as fitted paramter set
+pl 'data.dat' u 1:2 w l, f(x)      # plot the fitted function for comparison, note `a`, `b` will be used as fitted parameter set
 ```
 
 

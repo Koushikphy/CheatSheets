@@ -9,9 +9,9 @@ upload `~/.ssh/id_rsa.pub` to github ssh keys
 
 
 
-#### Basic commnads
+#### Basic commands
 ```bash 
-git init  # inititalize a folder as a git repo
+git init  # initialize a folder as a git repo
 git remote add origin git@github.com:<your_repo>   # add remote origin to your repo
 git clone <your_repo> # clone a repo
 git add .   # add files for commit
@@ -21,7 +21,7 @@ git push -u origin main         # push to main(or master) branch
 ```
 
 
-#### Quick one commnad way to add, commit and push
+#### Quick one command way to add, commit and push
 add this to your `~/.bashrc`
 ```bash
 function lazygit() {

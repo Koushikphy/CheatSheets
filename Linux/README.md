@@ -72,7 +72,7 @@ rsync -zarvm --include="*/" --include="*.sh" --exclude="*" "$from" "$to"
 #### `rsync` only transfer certain files  
 search the list of files with `fd` (or `find`) and send it using `rsync`
 ```bash
-fd <serach_pattern> | rsync -avm  --progress --stats --files-from=- . $dst
+fd <search_pattern> | rsync -avm  --progress --stats --files-from=- . $dst
 ```
 
 #### size of the current directory

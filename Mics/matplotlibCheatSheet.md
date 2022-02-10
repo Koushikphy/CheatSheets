@@ -49,7 +49,7 @@ fig,ax = plt.subplots(figsize=(12,6),dpi=100)
 fig, axes = plt.subplots(nrows=1, ncols=2)
 #^ `axes` now a list of two axis objects, each can be used like before to plot 
 
-# remove unwanted margins, after plotting everythings
+# remove unwanted margins, after plotting everything
 fig.tight_layout()
 
 
@@ -64,7 +64,7 @@ fig.savefig("filename.png", dpi=200)
 ax.plot(x, x**2, 'b-') # blue line
 ax.plot(x, x**2, 'b.-') # blue line with dots
 ax.plot(x, x**3, 'g--') # green dashed line
-ax.plot(x, x**3, 'g--',alpha=0.5) # half transperant
+ax.plot(x, x**3, 'g--',alpha=0.5) # half transparent
 
 ax.plot(x, x**2, color="blue", linestyle='-', marker='.') # same as above second
 ax.plot(x, x**2, color="blue", linestyle='-', marker='.' , linewidth=2) # thicker line

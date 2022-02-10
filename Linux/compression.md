@@ -6,7 +6,7 @@ gzip -kv -6 <filename>
 #or
 gzip -kvr -6 <directory>
 ```
-`-k` : is to keep the original file after genereting the compressed one, by defualt it removes the original file.   
+`-k` : is to keep the original file after generating the compressed one, by default it removes the original file.   
 `-v` is for `verbose`.   
 `-6` is the (default) compression level, available number are from 1 to 9, 1 being the fastest and 9 meaning the best/slowest compression.   
 For directory `-r` flag is used for recursive compression.  
@@ -27,7 +27,7 @@ For parallel gzip use https://zlib.net/pigz/
 ```bash
 xz -k -6 -T 3 --verbose <file>
 ```
-`xz` supports parallel processing, use it wtih `-T 3` with 3 being number of processor.  
+`xz` supports parallel processing, use it with `-T 3` with 3 being number of processor.  
 
 For best possible compression use https://github.com/ckolivas/lrzip  
 
@@ -49,7 +49,7 @@ Useful utilities:
 tar -zcvf archive.tar.gz sample-folder
 ```
 `-z` : Use `gzip` to compress  
-`-c` : Create archilve  
+`-c` : Create archive  
 `-v` : Verbose  
 `-f` : Archive file name  
 `-j` : Use `bzip2` utility  
@@ -63,7 +63,7 @@ tar -zxvf archive.tar.gz
 
 ### Using `zip`:  
 ```bash
-zip ouput.zip [filename] [-r folder_name]
+zip output.zip [filename] [-r folder_name]
 ```
 to unzip use  
 ```bash
