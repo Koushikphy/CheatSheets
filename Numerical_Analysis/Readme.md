@@ -16,6 +16,7 @@
 5. Find max/min value of an array.
 5. Reverse a given array.
 6. Sort an array: Bubble, Selection, and Insertion sort.
+6. Given a list of roll number (or names) for N students and their marks in some exam, sort the list of roll number (or names) based on their marks.
 7. Given three numbers a,b,c create an array of AP series with start value a, end value b, and common difference c. Also, create a GP series of the same.
 8. Given three numbers a,b,c, create an array of AP series with start value a, end value b, and total length c. Also, create a GP series of the same.
 9. Create an equispaced grid of 0 to 2&pi;. Apply Sin/Cos to the grid, save the result in a file, and plot.

@@ -43,3 +43,12 @@ git rm --cached giant_file
 git commit --amend -CHEAD
 git push
 ```
+
+
+#### Tags
+```bash
+git tag <tag_name>              # create local tag
+git push origin <tag_name>      # push local tag to remote
+git tag -d <tag_name>           # delete local tag
+git push --delete origin <tag_name> # delete remote tag
+```
