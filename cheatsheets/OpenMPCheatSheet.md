@@ -55,7 +55,7 @@
     Each one of the above option to set number of threads has greater affinity than the before i.e. if all the option is set, the last one will take effect. Note, only the first option doesn't modify the code itself, so it may be more useful/portable.
 
 1. **Parallelizing `do` loops**
-    * OpenMP do loop directive.
+    * **OpenMP do loop directive**.
     ```fortran
     !$omp parallel do
     do i=1,n
@@ -64,7 +64,8 @@
     !$omp end parallel do
     ```
 
-    * Scoping variable inside an parallel do loop: `private`/`shared` variable. The `default` keyword define the default scope of the variable inside the do loop. In absence of any default scope,  
+    * **Scoping variable inside an parallel do loop: `private`/`shared` variable.**  
+    The `default` keyword define the default scope of the variable inside the do loop. In absence of any default scope,  
         - all loop index variable are private  
         - all other variables are shared  
         - all automatic variable inside a procedure call from the parallel region are private  
@@ -78,7 +79,7 @@
     ```
 
  
-    * Parallelize multiple do loops: `collapse` clause.   
+    * **Parallelize multiple do loops: `collapse` clause.**   
     The following parallelize 2 do loops. Note: The loops have to be in a canonical form
     ```fortran
     !$omp parallel do default(shared) private(x) collapse(2)
@@ -90,7 +91,7 @@
     !$omp end parallel do
     ```
 
-    * Perform reduction operation across threads: `reduction` clause.  
+    * **Perform reduction operation across threads: `reduction` clause.**  
     The format for reduction is `reduction(<operator>:<variable>)`Variable inside the reduction clause stays private and after exiting the parallel region they are reduced using the specified operator. Following performs a sum over an array element in parallel using reduction
     ```fortran
     total = 0 
@@ -103,7 +104,7 @@
     * Learn more: Scheduling
 
 
-1. Conditional parallelization: `if` clause.   
+1. **Conditional parallelization: `if` clause.**   
 If the parallel directive has an `if` clause then the directive only take effect only if the `if` clause satisfies    
 ```fortran
 !$omp parallel do if(n>10)
@@ -115,7 +116,7 @@ enddo
 
 
 
-1. Noniterative workshare: `sections` clause.
+1. **Noniterative workshare: `sections` clause.**  
 The OpenMP parallel sections parallelize blocks of code, separated by `section` clause, in threads. Here, all the 3 subroutine calls will be made in parallel.
 ```fortran
 !$omp parallel sections
@@ -130,7 +131,7 @@ call sub3()
 
 
 
-1. Mutual exclusion synchronization: `critical` clause.  
+1. **Mutual exclusion synchronization: `critical` clause.**  
 Block of code inside this clause can be run only by one thread at a time, i.e. their execution is mutually exclusive. 
 ```fortran
 !$omp parallel 
