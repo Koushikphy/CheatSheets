@@ -12,6 +12,7 @@
     # for ifort
     ifort code.f90 -qopenmp
     ```
+    <br>
 
 1. **OpenMP directive**
     In free form of Fortran a line that begins with `!$omp` is a OpenMP directive
@@ -25,6 +26,7 @@
     ! will only print when OpenMP is enabled
     !$ print *, 'Hello'
     ```
+     <br>
 
 1. **OpenMP parallel region**
     A parallel region is declared by the `parallel` directive. Code inside the parallel region (by default) will be executed by all the threads
@@ -33,6 +35,7 @@
     !code to be executed in parallel
     !$omp end parallel
     ```
+     <br>
 
 1. **Setting number of threads.**
     1. Using environment variable.
@@ -52,7 +55,8 @@
     !$omp end parallel
     ```
 
-    Each one of the above option to set number of threads has greater affinity than the before i.e. if all the option is set, the last one will take effect. Note, only the first option doesn't modify the code itself, so it may be more useful/portable.
+    Each one of the above option to set number of threads has greater affinity than the before i.e. if all the option is set, the last one will take effect. Note, only the first option doesn't modify the code itself, so it may be more useful/portable.  <br></br>
+    
 
 1. **Parallelizing `do` loops**
     * **OpenMP do loop directive**.
@@ -62,7 +66,8 @@
     !code inside this do loop will be executed in parallel
     enddo
     !$omp end parallel do
-    ```
+    ```  
+    <br>
 
     * **Scoping variable inside an parallel do loop: `private`/`shared` variable.**  
     The `default` keyword define the default scope of the variable inside the do loop. In absence of any default scope,  
@@ -77,6 +82,7 @@
     enddo
     !$omp end parallel do
     ```
+      <br>
 
  
     * **Parallelize multiple do loops: `collapse` clause.**   
@@ -90,6 +96,7 @@
     enddo
     !$omp end parallel do
     ```
+      <br>
 
     * **Perform reduction operation across threads: `reduction` clause.**  
     The format for reduction is `reduction(<operator>:<variable>)`Variable inside the reduction clause stays private and after exiting the parallel region they are reduced using the specified operator. Following performs a sum over an array element in parallel using reduction
@@ -102,6 +109,7 @@
     !$omp end parallel do
     ```
     * Learn more: Scheduling
+     <br>
 
 
 1. **Conditional parallelization: `if` clause.**   
@@ -113,6 +121,7 @@ do i=1,n
 enddo
 !$omp end parallel do
 ```
+<br>
 
 
 
@@ -127,6 +136,7 @@ call sub2()
 call sub3()
 !$omp end parallel sections
 ```
+<br>
 
 
 
@@ -140,3 +150,4 @@ call sub1()
 !$omp end critical
 !$omp end parallel 
 ```
+<br>
