@@ -35,7 +35,7 @@
 |`r`|Replace current letter|
 |`R`|Replace all letter until `ESC` is pressed|
 |`gg`| Go to the start of the file|
-|`G`| Go to the start of the file|
+|`G`| Go to the end of the file|
 |`0`|Jump to the start of the line|
 |`$`|Jump to the end of the line|
 |`u`|Un do |
@@ -58,7 +58,7 @@
 | Command      | Description |
 | ----------- | ----------- |
 | `vi -o file1 file2`      | Open files in horizontal split       |
-| `vi -o file1 file2`      | Open files in vertical split       |
+| `vi -O file1 file2`      | Open files in vertical split       |
 | `vi -p file1 file2`      | Open files in tabs       |
 | `vi -x file1`      | Open file with encryption       |
 
