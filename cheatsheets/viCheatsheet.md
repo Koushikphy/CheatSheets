@@ -25,13 +25,15 @@
 | `:.,7d`   | Delete current line to line 7 (`.` means current line)        |
 | `:7,$d`   | Delete  line 7 to end of the file (`$` means last line)        |
 | `:.,$d`   | Delete current line to end of the file      |
-|`yy`| Copy the current line|
+|`yy` <br> `Y`| Copy the current line|
 | `7yy`   | Copy next 7 line        |
 | `:3,7y`   | Copy  line 3 to line 7        |
 | `:.,7y`   | Copy current line to line 7      |
 | `:7,$y`   | Copy  line 7 to end of the file      |
 | `:.,$y`   | Copy current line to end of the file      |
 |`:2,7w newfile`| Copy line 2 to 7 of the current file and save it in `newfile`|
+|`p`|Paste after the current line|
+|`P`|Paste after the current line|
 |`r`|Replace current letter|
 |`R`|Replace all letter until `ESC` is pressed|
 |`gg`| Go to the start of the file|
