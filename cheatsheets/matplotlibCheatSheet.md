@@ -87,6 +87,26 @@ ax.plot(x, x+16,
 ```
 
 
+### Configuring font properties
+```python
+# Label font properties
+
+ax.set_xlabel('X', fontdict={'fontsize': 8, 'fontweight': 'medium','fontname':"Serif"})
+
+
+# Legend font properties
+import matplotlib.font_manager as font_manager
+font = font_manager.FontProperties(family='Comic Sans MS',
+                                   weight='bold',
+                                   style='normal', 
+                                   size=32)
+
+ax.legend(title="My Title", prop=font, title_fontproperties=font,)
+#^ legend text and title are configured seperately
+```
+
+
+
 ### Contours
 #### Line Contour:
 ```python

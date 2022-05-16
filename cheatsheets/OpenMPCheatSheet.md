@@ -151,3 +151,36 @@ call sub1()
 !$omp end parallel 
 ```
 <br>
+
+
+
+
+1. **Coarse grain vs fine grain parallelisation**  
+    __Tl;dr__ Coarse grain means explicitly sharing of task in each threads and fine grain means let OpenMP handle how to share task in each thread.  
+
+
+    __Coarse grain parallelisation__: Here a task is split in small number of large tasks and they are explicitly assigned to threads. In this case OpenMP only opertes each thread on disjoint part of the large task. Not always prefered. Imporper load balancing may occur
+    ```fortran
+    points_per_thread = (n + nthreads - 1) / nthreads
+    !$omp parallel private(thread_num, istart, iend, i)
+    thread_num = 0  ! for  serial mode
+    !$ thread_num = omp_get_thread_num()
+    istart = thread_num * points_per_thread + 1
+    iend = min((thread_num+1) * points_per_thread, n)
+    !manually/explicitly split the do loops in each thread
+    do i=istart,iend
+    ! work on thread’s part of array
+    enddo
+    ...
+    !$omp end parallel
+    ```
+
+
+    __Fine grain parallelisation__: Here a task is split into large number of small task and they are implicitly shared in available threads. Preferable in most of the cases.
+    ```fortran
+    !$omp parallel do  private(i)
+    do i=1,n
+        ! codes !
+    enddo
+    !$omp end parallel do 
+    ```
