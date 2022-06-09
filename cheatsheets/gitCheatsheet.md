@@ -35,7 +35,10 @@ and use
 lazygit "commit message"
 ```
 
-
+#### Global gitignore file
+```bash
+git config --global core.excludesFile '~/.gitignore'
+```
 
 #### Remove a already tracked file from history
 ```bash

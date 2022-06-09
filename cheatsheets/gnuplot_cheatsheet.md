@@ -150,24 +150,27 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
 
 
 1. loops
-    * Inlined `for` loop (gnuplot 4.4+)
+    * Inlined `for` loop (all plots will be drawn in a single graph/window) (gnuplot 4.4+)
     ```bash
     plot for [i=1:1000] 'data'.i.'.txt' using 1:2 title 'Data='.i
     ```
 
 
-    * Explicit `do-for` loop (gnuplot 4.6+)
+    * Explicit `do-for` loop (plots will be done one after another) (gnuplot 4.6+)
     ```bash
     do for [i=0:4] {
         plot 'data'.i.'.txt' using 1:2 title 'Data='.i
+        pause -1
     }
     ```
+    `pause -1` means to wait for the enter key. Use `pause n` to wait for n sec.
 
     * looping over a string of words
     ```bash
     ll='0 1 2 3 4'
     do for [i in ll] {
         plot 'data'.i.'.txt' using 1:2 title 'Data='.i
+        pause -1
     }
     ```
 
