@@ -3,12 +3,12 @@
    
 * MPI: Distributed Computing. 
 * MPI codes are run on multiple separate processes across single or multiple computing hosts and MPI provides a bridge/interface between the processes to communicate information between them.
-* Unlike OpenMP, MPI is a kind of "all of nothing" kind of parallelization approach i.e. once you write your code in MPI you have to compile/run it using MPI
+* MPI is a kind of "all or nothing" kind of parallelization approach i.e. once you write your code in MPI you have to compile/run it using MPI, unlike OpenMP where in absence of appropriate flags all OpenMP directives are just comment.
 
 
 
 ### Compilation
-Compiler vendors usually provide wrapper utilities for quick compilation of MPI codes
+For properly compiling an MPI code you have to link appropriate libraries. Fortunately, compiler vendors usually provide wrapper utilities for quick compilation of MPI codes
 ```bash
 mpifort test.f90 # compile with gfortran and MPI
 mpiifort test.f90 # compile with ifort and MPI
@@ -17,7 +17,7 @@ Run `mpifort --show-config`  or `mpiifort -show` to check the full command that'
 
 
 ### Execution
-An MPI compiled code is run using `mpirun`.  
+An MPI compiled code  (usually) run using `mpirun`.  
 The following command launches `3` instances of the executable `a.out`
 ```bash
 mpirun -np 3 ./a.out  
@@ -28,13 +28,14 @@ mpirun -np 3 -hosts node1,node2 ./a.out
 ```
 ---
 _**Codes**_
-
+The following codes uses Fortran 90 bindings to MPI. For modern application it is prefered to use the Fortran 2008 MPI interface (`use mpi_f08`)
 ### Setup
 ```fortran 
+    use mpi
     call MPI_INIT(ierr)
 
     !!!!!!!!!!!!!!
-    ! Codes
+    ! Your Codes
     !!!!!!!!!!!!!!
 
     call MPI_FINALIZE(ierr)

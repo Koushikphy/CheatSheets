@@ -1,7 +1,6 @@
 ### OpenMP cheat sheet for Fortran
 ---
-1. Thread Level Parallelism 
-1. Shared Memory Parallelism
+OpenMP: (i) Thread Level Parallelism; (ii) Shared Memory Parallelism
 
 ---
 1. **Compiling OpenMP code**
@@ -113,44 +112,44 @@
 
 
 1. **Conditional parallelization: `if` clause.**   
-If the parallel directive has an `if` clause then the directive only take effect only if the `if` clause satisfies    
-```fortran
-!$omp parallel do if(n>10)
-do i=1,n
-    ! This loop is parallelized only if n is greater than 10
-enddo
-!$omp end parallel do
-```
-<br>
+    If the parallel directive has an `if` clause then the directive only take effect only if the `if` clause satisfies    
+    ```fortran
+    !$omp parallel do if(n>10)
+    do i=1,n
+        ! This loop is parallelized only if n is greater than 10
+    enddo
+    !$omp end parallel do
+    ```
+    <br>
 
 
 
 1. **Noniterative workshare: `sections` clause.**  
-The OpenMP parallel sections parallelize blocks of code, separated by `section` clause, in threads. Here, all the 3 subroutine calls will be made in parallel.
-```fortran
-!$omp parallel sections
-call sub1()
-!$omp section
-call sub2()
-!$omp section
-call sub3()
-!$omp end parallel sections
-```
-<br>
+    The OpenMP parallel sections parallelize blocks of code, separated by `section` clause, in threads. Here, all the 3 subroutine calls will be made in parallel.
+    ```fortran
+    !$omp parallel sections
+    call sub1()
+    !$omp section
+    call sub2()
+    !$omp section
+    call sub3()
+    !$omp end parallel sections
+    ```
+    <br>
 
 
 
 
 1. **Mutual exclusion synchronization: `critical` clause.**  
-Block of code inside this clause can be run only by one thread at a time, i.e. their execution is mutually exclusive. 
-```fortran
-!$omp parallel 
-!$omp critical
-call sub1()
-!$omp end critical
-!$omp end parallel 
-```
-<br>
+    Block of code inside this clause can be run only by one thread at a time, i.e. their execution is mutually exclusive. 
+    ```fortran
+    !$omp parallel 
+    !$omp critical
+    call sub1()
+    !$omp end critical
+    !$omp end parallel 
+    ```
+    <br>
 
 
 

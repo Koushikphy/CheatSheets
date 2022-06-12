@@ -2,6 +2,9 @@
 ### Basic plot with 2 lines
 
 ```python
+# note there are two types of style for plotting with matplotib
+# one is object oriented and other is functional style, 
+# the following codes uses object oriented style of ploting with matplotlib
 import numpy as np
 import matplotlib.pyplot as plt 
 

@@ -21,19 +21,7 @@ git push -u origin main         # push to main(or master) branch
 ```
 
 
-#### Quick one command way to add, commit and push
-add this to your `~/.bashrc`
-```bash
-function lazygit() {
-    git add .
-    git commit -a -m "$1"
-    git push -u origin master   # push to `master` branch, change if required
-}
-```
-and use
-```bash
-lazygit "commit message"
-```
+
 
 #### Global gitignore file
 ```bash
@@ -54,4 +42,19 @@ git tag <tag_name>              # create local tag
 git push origin <tag_name>      # push local tag to remote
 git tag -d <tag_name>           # delete local tag
 git push --delete origin <tag_name> # delete remote tag
+```
+
+
+#### Quick one command way to add, commit and push
+add this to your `~/.bashrc`
+```bash
+function lazygit() {
+    git add .
+    git commit -a -m "$1"
+    git push -u origin master   # push to `master` branch, change if required
+}
+```
+and use
+```bash
+lazygit "commit message"
 ```

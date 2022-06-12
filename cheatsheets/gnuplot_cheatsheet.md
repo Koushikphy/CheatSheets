@@ -8,13 +8,13 @@ _Provided gnuplot version above 4.6_
     test   
     ```
 
-1. plot 'data.dat' file with column 1 and 2 as x and y axis, with lines+points
+1. Plot 'data.dat' file with column 1 and 2 as x and y axis, with lines+points
     ```bash
     plot 'data.dat' using 1:2 with linespoints 
     p 'data.dat' u 1:2 w lp   #shorten version
     ```
 
-1. plot 2D data file 'data.dat' with column 1,2, and 3 as x,y,z axis. 2D data means the data is in blocks of the x axis
+1. Plot 2D data file 'data.dat' with column 1,2, and 3 as x,y,z axis. 2D data means the data is in blocks of the x axis
     ```bash
     splot 'data.dat' u 1:2:3 w lp  
     sp 'data.dat' u 1:2:3 w lp   #shorten version
@@ -28,19 +28,19 @@ _Provided gnuplot version above 4.6_
     ```
 
 
-1. set line type, sets the color and styles of lines and points
+1. Set line type, sets the color and styles of lines and points
     ```bash
     p 'data.dat' u 1:2 w lp linetype 1  
     p 'data.dat' u 1:2 w lp lt 1   # shorten version
     ```
 
-1. sets color, dash, width of lines and type, size of points
+1. Sets color, dash, width of lines and type, size of points
     ```bash
     p 'data.dat' u 1:2 w lp linecolor 1 dashtype 1 linewidth 2 pointtype 2 pointsize 3 
     p 'data.dat' u 1:2 w lp lc 1 dt 1 lw 2 pt 2 ps 3   # shorten version
     ```
 
-1. set legend for the plot
+1. Set legend for the plot
     ```bash
     p 'data.dat' u 1:2 w lp title "my data"
     p 'data.dat' u 1:2 w lp t "my data"     # shorten version
@@ -107,7 +107,7 @@ _Provided gnuplot version above 4.6_
 
 
 
-1. __multiple Data sets and data blocks__:
+1. __Multiple Data sets and data blocks__:  
 In multi data set file the data sets are separated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatively, data blocks are separated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data  
 
     **Data Sets** : *Data separated by two blank lines*.  
@@ -149,14 +149,14 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
     ```
 
 
-1. loops
-    * Inlined `for` loop (all plots will be drawn in a single graph/window) (gnuplot 4.4+)
+1. __Loops__
+    * __Inlined__ `for` loop (all plots will be drawn in a single graph/window) (gnuplot 4.4+)
     ```bash
     plot for [i=1:1000] 'data'.i.'.txt' using 1:2 title 'Data='.i
     ```
 
 
-    * Explicit `do-for` loop (plots will be done one after another) (gnuplot 4.6+)
+    * __Explicit__ `do-for` loop (plots will be done one after another) (gnuplot 4.6+)
     ```bash
     do for [i=0:4] {
         plot 'data'.i.'.txt' using 1:2 title 'Data='.i
@@ -175,7 +175,7 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
     ```
 
 
-1. Call system commands:  
+1. __system__: Call shell commands:  
     Use `system` command to call any terminal/system commands, e.g. to list all `.txt` file in directory
     ```bash
     system('ls *.txt')
@@ -184,14 +184,14 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
 
 
 
-1. Curve Fitting
+1. __Curve Fitting__
 
-```bash
-f(x) = a*exp(-b*x**2)   # define the curve you want to fit
-a=1;b=1                 # set initial values of the parameter
-fit f(x) 'data.dat' u 1:2 via a,b  # fit 1,2 column, as x and f(x), of the file `data.dat` by varying the parameter `a`, `b`
-pl 'data.dat' u 1:2 w l, f(x)      # plot the fitted function for comparison, note `a`, `b` will be used as fitted parameter set
-```
+    ```bash
+    f(x) = a*exp(-b*x**2)   # define the curve you want to fit
+    a=1;b=1                 # set initial values of the parameter
+    fit f(x) 'data.dat' u 1:2 via a,b  # fit 1,2 column, as x and f(x), of the file `data.dat` by varying the parameter `a`, `b`
+    pl 'data.dat' u 1:2 w l, f(x)      # plot the fitted function for comparison, note `a`, `b` will be used as fitted parameter set
+    ```
 
 
 ### Reference
