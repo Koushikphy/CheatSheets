@@ -5,7 +5,7 @@
 * MPI codes are run on multiple separate processes across single or multiple computing hosts and MPI provides a bridge/interface between the processes to communicate information between them.
 * MPI is a kind of "all or nothing" kind of parallelization approach i.e. once you write your code in MPI you have to compile/run it using MPI, unlike OpenMP where in absence of appropriate flags all OpenMP directives are just comment.
 
-
+---
 
 ### Compilation
 For properly compiling an MPI code you have to link appropriate libraries. Fortunately, compiler vendors usually provide wrapper utilities for quick compilation of MPI codes
@@ -15,6 +15,7 @@ mpiifort test.f90 # compile with ifort and MPI
 ```
 Run `mpifort --show-config`  or `mpiifort -show` to check the full command that's actually being run by the compiler to compile the code in MPI mode.  
 
+---
 
 ### Execution
 An MPI compiled code  (usually) run using `mpirun`.  
@@ -26,10 +27,12 @@ The following command launches `3` process across two hosts named `node1` and `n
 ```
 mpirun -np 3 -hosts node1,node2 ./a.out
 ```
+
 ---
-_**Codes**_
+
+### Codes
 The following codes uses Fortran 90 bindings to MPI. For modern application it is prefered to use the Fortran 2008 MPI interface (`use mpi_f08`)
-### Setup
+#### Setup
 ```fortran 
     use mpi
     call MPI_INIT(ierr)
@@ -42,14 +45,14 @@ The following codes uses Fortran 90 bindings to MPI. For modern application it i
     ! `ierr` is the return code for the call, of type integer. All MPI routines in Fortran has an error code as last argument 
 ```
 
-### Basic information
+#### Basic information
 ```fortran
     call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierr)      ! rank: rank/id of current process
     call MPI_COMM_SIZE(MPI_COMM_WORLD, num_procs, ierr) ! num_procs: total number of process
     call MPI_GET_PROCESSOR_NAME(pName, nresLen, ierr)   ! pName: name of the host for current process
 ```
 
-### Communication
+#### Communication
 Explicit Send and Receive data with one-to-one communication. `Send` is called only at source and `Recv` only at destination.
 ```fortran
     call MPI_Send(variable, length, MPI Datatype, destination, tag, MPI_COMM_WORLD,ierr) 
