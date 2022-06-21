@@ -8,6 +8,8 @@
 | `:wq`  <br> `:x` <br> `ZZ (shift+zz)`| Save changes and exit        |
 | `:wqa`   | Save changes and exit all  tabs        |
 |`:x` | Save file with encryption|
+|`:80` | Jump to line 80|
+|`80|` | Jump to column 80 (`|` is a pipe sign)|
 |`i` |insert before the cursor|
 |`I` |insert at the beginning of the line|
 |`a` |insert (append) after the cursor|
@@ -62,9 +64,5 @@
 | `vi -o file1 file2`      | Open files in horizontal split       |
 | `vi -O file1 file2`      | Open files in vertical split       |
 | `vi -p file1 file2`      | Open files in tabs       |
-| `vi -x file1`      | Open file with encryption       |
-
-
-### Open vi directly to a line number:
-Install https://github.com/bogado/file-line and use `vi my_file.txt:51` to open the file and go directly to line number 51
-
+| `vi +n file`      | Open file directly on line n       |
+| `vi -x file`      | Open file with encryption       |
