@@ -194,5 +194,12 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
     ```
 
 
+1. Prevent gnuplot from parsing special character as latex command
+```bash 
+set key noenhanced
+```
+
+
+
 ### Reference
 1. Gnuplot website : http://www.gnuplot.info/

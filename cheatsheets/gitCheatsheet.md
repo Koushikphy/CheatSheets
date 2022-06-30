@@ -58,3 +58,12 @@ and use
 ```bash
 lazygit "commit message"
 ```
+
+
+
+#### git squash
+Squash last 10 commit, choose what to `pick` and what to `squash`
+```bash
+git rebase -i HEAD~10
+git push --force origin <branch>  # if already pushed , force to origin
+```
