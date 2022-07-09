@@ -12,3 +12,4 @@ __*A collection of random cheat sheets for a quick reference*__
 ## Some useful repo:
 1. [Better-Linux](https://github.com/Koushikphy/Better-Linux): Commands, tools & know-how to work with Linux in a better way.
 2. [Fortran-Topics](https://github.com/Koushikphy/Fortran-Topics): A Collection of some random & useful Fortran codes.
+3. [CUDA Fortran: Fortran programming on GPU](https://github.com/Koushikphy/Intro-to-CUDA-Fortran): A Complete beginner's introduction to programming with CUDA Fortran
