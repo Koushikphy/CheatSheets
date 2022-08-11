@@ -107,7 +107,34 @@ OpenMP: (i) Thread Level Parallelism; (ii) Shared Memory Parallelism
     enddo
     !$omp end parallel do
     ```
-    * Learn more: Scheduling
+    <br> 
+    
+    * **Behavior of parallelization: `schedule` clause**: The OpenMP loop schedule clause determines how the corresponding loop iterations will be assigned to different execution threads. 
+    ```fortran
+    !$omp parallel do schedule(<type>,<chunksize>)
+    do i=1,n
+        !codes
+    enddo
+    !$omp end parallel do
+    ```
+
+    <details>	
+        <summary>There are 5 types of schedule in total:</summary>
+
+   
+    1. `static`: If no chunksize is not provided, OpenMP will divide the whole iteration into equal (if possible) size of chunks and distribute them to the threads, otherwise it will be divided into number of iteration given by the chunksize. In `static` scheduling both the chunksize and their mapping to threads are constant, resulting in minimum overhead during parallelization, but may create a load imbalance if iterations are not equally distributed in threads. `static` scheduling is preferable when each iteration have almost equal computation requirement and the loop can be divided into approximately equal number of chunks as that of the threads. This is the default behavior, in case of no explicit scheduling is provided.
+
+
+    2. `dynamic`: Here OpenMP will split the whole loop into iteration-size/chunk-size, but they will be distributed to threads dynamically without any specific order. In dynamic scheduling the chunksize is constant but their mapping is dynamic. Due to this behavior this approach has the minimum load imbalance but at the same time it also introduce significant overhead during the parallelization. When different iteration of the loop require different computaion time, `dynamic` scheduling is preferable.
+
+    3. `guided`: Here both the chunk size and the mapping of the chunks are dynamic. The size of the chunk is proportional to the number of unassigned iterations divided by the number of threads and the size will decreased to chunksize.
+
+    4. `runtime`: Scheduling is set from the outside of the code through the `OMP_SCHEDULE` environment variable
+
+    5. `auto`: Here the comiler/machine will decide and/or runtime the best scheduling to apply to the corresponding loop.
+    </details>
+ 
+
      <br>
 
 
@@ -134,6 +161,33 @@ OpenMP: (i) Thread Level Parallelism; (ii) Shared Memory Parallelism
     !$omp section
     call sub3()
     !$omp end parallel sections
+    ```
+    <br>
+
+
+
+
+
+1. **Nested parallelism**  
+    Multiple OpenMP parallel regions can be nested inside each other. 
+    ```fortran
+
+    !$ call omp_set_max_active_levels(2)   ! Allows 2 level of nested parallelization
+
+    !$omp parallel do default(shared) 
+    do i=1,n
+        ! codes
+        !$omp parallel do default(shared) 
+        do j=1,m
+            ! codes
+        enddo
+        !$omp end parallel do
+    enddo
+    !$omp end parallel do
+    ```
+    The above code will be parallelized in 2 nested parallel regions i.e. if number of OpenMP threads is set to 4 then the innermost code will be executed by 4x4=16 threads. If one need to flexibly change the number of OpenMP threads in separate nested level then the following code have to be called 
+    ```fortran
+    !$ call omp_set_dynamic(.true.)
     ```
     <br>
 
