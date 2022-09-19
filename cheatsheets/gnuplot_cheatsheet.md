@@ -180,7 +180,11 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
     ```bash
     system('ls *.txt')
     ```
-    This is useful when working with loop to loop through/plot all related files in a directory.
+    This is useful when working with loop to loop through/plot all related files in a directory.   
+    For example, the following command plots all the `*.dat` files in the current directory
+    ```bash
+    plot for [i in system("ls *.dat")] i u 1:2 w l title i
+    ```
 
 
 
