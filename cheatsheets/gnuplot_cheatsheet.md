@@ -2,58 +2,57 @@
 _Provided gnuplot version above 4.6_
 
 
-
 1. Check available gnuplot plot styles
     ```bash 
     test   
     ```
 
-1. Plot 'data.dat' file with column 1 and 2 as x and y axis, with lines+points
+2. Plot 'data.dat' file with column 1 and 2 as x and y axis, with lines+points
     ```bash
     plot 'data.dat' using 1:2 with linespoints 
     p 'data.dat' u 1:2 w lp   #shorten version
     ```
 
-1. Plot 2D data file 'data.dat' with column 1,2, and 3 as x,y,z axis. 2D data means the data is in blocks of the x axis
+3. Plot 2D data file 'data.dat' with column 1,2, and 3 as x,y,z axis. 2D data means the data is in blocks of the x axis
     ```bash
     splot 'data.dat' u 1:2:3 w lp  
     sp 'data.dat' u 1:2:3 w lp   #shorten version
     ```
 
 
-1. Plot multiple lines
+4. Plot multiple lines
     ```bash
     p 'data.dat' u 1:2 w lp, 'data.dat' u 1:3 w lp
     p 'data.dat' u 1:2 w lp, '' u 1:3 w lp # can skip the 2nd file name if its the same as the first one
     ```
 
 
-1. Set line type, sets the color and styles of lines and points
+5. Set line type, sets the color and styles of lines and points
     ```bash
     p 'data.dat' u 1:2 w lp linetype 1  
     p 'data.dat' u 1:2 w lp lt 1   # shorten version
     ```
 
-1. Sets color, dash, width of lines and type, size of points
+6. Sets color, dash, width of lines and type, size of points
     ```bash
     p 'data.dat' u 1:2 w lp linecolor 1 dashtype 1 linewidth 2 pointtype 2 pointsize 3 
     p 'data.dat' u 1:2 w lp lc 1 dt 1 lw 2 pt 2 ps 3   # shorten version
     ```
 
-1. Set legend for the plot
+7. Set legend for the plot
     ```bash
     p 'data.dat' u 1:2 w lp title "my data"
     p 'data.dat' u 1:2 w lp t "my data"     # shorten version
     ```
 
-1. Set axis lables
+8. Set axis lables
     ```bash
     set xlabel/ylabel "My Axis" 
     set xlabel/ylabel "My Axis" font "Haveltica,20"  # set font as Haveltica, with size 20
     set xlabel/ylabel "My Axis" font "Haveltica,20" rotate by 90  # rotate the label by 90 degree
     ```
 
-1. Set Ranges
+9. Set Ranges
     ```bash
     set xrange/yrange [1:2] # set xrange or yrange from 1-2
     se xr/yr [1:2]          # shorten version
@@ -61,7 +60,7 @@ _Provided gnuplot version above 4.6_
     pl [1:2][3:4] 'data.dat'# plot 'data.dat' with xrange 1-2 and yrange 3-4
     ```
 
-1. Set ticks
+10. Set ticks
     ```bash
     set xtics 5  # Set x-axis tics with interval of 5
     set xtics 0,.5,10  # Set x-axis tics between 0 to 10, with increment of 0.5
@@ -72,21 +71,23 @@ _Provided gnuplot version above 4.6_
     # same syntax applies to ytics, ztics, x2tics, y2tics and cbtics
     ```
 
-1. Set texts/labels 
+11. Set texts/labels 
     ```bash
-    set label 1 "A" at 1,1 "Haveltica,20" {pt <pointstyle>} {front|back}
+    set label 1 "A" {at <position>} "Haveltica,20" {front|back} 
     # use different tag (i.e. `1` after label) for different label
-    # for 3D use 3 position coordinates
+    # position can be a coordinate for 2 or 3 numbers
+    # for easily figuring out the position check below
     ```
 
 
-1. Set legend
+12. Set legend
     ```bash
     pl "data.dat" u 1:2 w l title "my data" # plot "data.dat" with "my data" as legend
     set key    # show legend (default)
     unset key  # hides legend
     set key inside  # set legend inside the plot (default)
     set key outside # set key outside the plot
+    set key at 1,1  # set key at 1,1 position ( see below)
     set key right top  # set key at top right corner (default)
     set key {left | right | center} {top | bottom | center} # set key at any of there combination only valid for `inside`  mode
     set key {above | below} # set key above of below the plot, valid only for `outside` mode.
@@ -98,7 +99,7 @@ _Provided gnuplot version above 4.6_
 
 
 
-1. Multiple y-axis
+13. Multiple y-axis
     ```bash
     plot "data1.dat" u 1:2 w l axes x1y1, "data2.dat" u 1:2 w l axes x1y2 
     # plot "data1.dat" on x axes 1 and y axes 1 i.e. use bottom and left axes for x and y respectively, and use "data.dat" with right axes as y axes. All the ranges, labels etc for the 2nd y axes can be controlled with y2range and y2label
@@ -107,14 +108,14 @@ _Provided gnuplot version above 4.6_
 
 
 
-1. __Multiple Data sets and data blocks__:  
+14. __Multiple Data sets and data blocks__:  
 In multi data set file the data sets are separated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatively, data blocks are separated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data  
 
     **Data Sets** : *Data separated by two blank lines*.  
     **Data Blocks**: *Data separated by one blank lines*.  
 
 
-1. __Plot part of a file__ :  
+15. __Plot part of a file__ :  
     __index command__:
     Plot part of a multi data set file using index command.To plot the 3rd index of a multi-dataset file use, (index starts from 0)
     ```
@@ -122,6 +123,9 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
     ```
 
     __every command__: A Very powerful gnuplot command where you can specify different part of a single data sets,
+
+    <details>	
+    <summary> Details of every command </summary> 
 
     `every I:J:K:L:M:N`	  
     *    `I`	Line increment  
@@ -140,6 +144,8 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
     *   `every :2`	plot every 2 data block  
     *   `every :::5::8`	plot from 5-th to 8-th data blocks  
     *   `every :::5::5` plot 5-th data block
+     </details>   
+
 
 
     __with bash command__
@@ -149,7 +155,7 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
     ```
 
 
-1. __Loops__
+16. __Loops__
     * __Inlined__ `for` loop (all plots will be drawn in a single graph/window) (gnuplot 4.4+)
     ```bash
     plot for [i=1:1000] 'data'.i.'.txt' using 1:2 title 'Data='.i
@@ -175,7 +181,7 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
     ```
 
 
-1. __system__: Call shell commands:  
+17. __system__: Call shell commands:  
     Use `system` command to call any terminal/system commands, e.g. to list all `.txt` file in directory
     ```bash
     system('ls *.txt')
@@ -188,7 +194,7 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
 
 
 
-1. __Curve Fitting__
+18. __Curve Fitting__
 
     ```bash
     f(x) = a*exp(-b*x**2)   # define the curve you want to fit
@@ -197,13 +203,128 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
     pl 'data.dat' u 1:2 w l, f(x)      # plot the fitted function for comparison, note `a`, `b` will be used as fitted parameter set
     ```
 
-
-1. Prevent gnuplot from parsing special character as latex command
-```bash 
-set key noenhanced
-```
+&nbsp;
 
 
+19. __Script for saving figure as eps/pdf__:  
+
+    Save the following script as `test.plt` and run `gnuplot test.plt` it will generate a `output.eps` file. You can easily convert the eps file to pdf with `epspdf`.
+
+
+    <details>	
+    <summary>Sample script</summary>
+
+    ```bash
+    set term postscript enhanced color 
+    set encoding iso_8859_1
+
+    set size 1.0,1.0
+    # set hidden3d
+    set nooffsets
+    set xtic ("0"0,"{/Symbol p}/6"0.52,"{/Symbol p}/3"1.05,"{/Symbol p}/2"1.57) offset 0,-0.3 font ",20"
+    set ytic ("0"0.0,"{/Symbol p}/2"1.57 , "{/Symbol p}"3.14, "3{/Symbol p}/2"4.71, "2{/Symbol p}"6.28) offset 0,-0.3 font ",20"
+    set xlabel "{/Symbol q}" offset 1,-1 font ",20"
+    set ylabel "{/Symbol p}" offset -1,-1 font ",20"
+    set zlabel "u (eV) "rotate parallel offset 1,0 font ",18"
+    set ztic 3
+    set view 55,60
+    set key font ",19"
+
+    set key at screen 0.9,0.9
+
+
+    set out "output.eps"
+    sp [][][:20] 'data.dat' u 1:2:3 every 2 w l title "u_1"
+    ```
+
+    </details>
+
+
+&nbsp;
+
+
+20. __Markups & Symbols__
+    Set the therminal type as `set encoding iso_8859_1` to use symbols and use the smbols. 
+    <details>	
+    <summary>  Useful Gnuplot Symbols  </summary>
+
+    | Symbol      | GnuPlot symbol |Symbol  |GnuPlot symbol | 
+    | ----------- | ----------- |---| ---| 
+    | `Å` (angstrom)     | {\305}      |`°` (degree)   | {\260}       |
+    |`α` (alpha)         |  {/Symbol a}    |`β` (beta)          |  {/Symbol b}    |
+    |`χ` (chi)       |  {/Symbol c}|`δ`/`Δ` (delta)       |  {/Symbol d/D}    |
+    |`ε` (epsilon)       |  {/Symbol e}   |`φ`/`Φ` (phi)         |  {/Symbol f/j/F}    |
+    |`γ`/`Γ` (gamma)       |  {/Symbol g}  |`η` (eta)       |  {/Symbol h}|
+    |`ι` (iota)          |  {/Symbol i}|`κ` (kappa)         |  {/Symbol k}|
+    |`λ`/`Λ` (lambda)          |  {/Symbol l/L}|`μ` (mu)        |  {/Symbol m}    |
+    |`ν` (nu)        |  {/Symbol n}|`π`/`Π` (pi)          |  {/Symbol p/P}    |
+    |`θ`/`Θ` (theta)       |  {/Symbol q/Q}  |`ρ` (rho)       |  {/Symbol r}|
+    |`σ`/`Σ` (sigma)       |  {/Symbol s/S}    |`τ` (tau)       |  {/Symbol t}    |
+    |`υ` (upsilon)       |  {/Symbol u}|`ω`/`Ω` (omega)       |  {/Symbol w/W}|
+    |`ξ`/`Ξ` (xi)          |  {/Symbol x/X}|`ψ`/`Ψ` (psi)         |  {/Symbol y}|
+    |`ζ` (zeta)          |  {/Symbol z}|
+
+    </details>  
+
+    <details>	
+    <summary>  Useful Gnuplot Markups  </summary> 
+
+    | Markup      | GnuPlot command | Description|
+    | ----------- | ----------- |-------|
+    |    $a^x$    | a^x  |Superscript |
+    |    $a_x$    | a_x  | Subscript|
+    |    _abc_    | {/Times:Italic abc}  |Italic |
+    |     __abc__    | {/Times:Bold=20 abc}  |Bold |
+    |    $a^b_c$    | a@^b_c  |Align super and subscript |
+
+     </details>   
+
+    * Markups can be turned off (if its already on for the terminal) with `noenhanced` keyword
+
+
+
+
+--- 
+
+### Miscellaneous
+
+1. __Remove margins from gnuplot saved eps__:  
+    Congfiguring margins inside gnuplot is tricky, instead use `eps2eps` removes margins from eps files saved from gnuplot. Save the figure in eps using gnuplot, use `eps2eps` to convert to a temporary `eps` and then convert the eps to pdf to generate a pdf with no unnecessary margins. Here's a simple bash function to do that easily. Just run this `topdf test.eps`.
+
+    <details>	
+    <summary>Bash function</summary>
+
+    ```bash
+    topdf(){
+        for file in $@; do
+            echo $file
+            tmpFile=$(mktemp).eps
+            eps2eps $file $tmpFile
+            epspdf $tmpFile "${file%.*}".pdf
+        done
+    }
+    ```
+    </details>
+
+
+&nbsp;
+
+
+1. __Positioning things__:  
+    Gnuplot using a coordinate style positioning to position different thing like `label`, `key` etc. This can get confusing sometimes and the best way is to use `graph` and `screen` positioning.   
+    The `screen` positioning uses the whole page of the plot to position things where `0,0` is the bottom left corner and `1,1` is the top right corner of the page. e.g.
+
+    ```bash
+    set label 1 "Hi there" at screen 0,0  # will put a label at the bottom left corner of the page
+    ```
+
+    The `graph` positioning sets the graph within the axes as a box (or rectangle) of unit 1. Here the `0,0` means the bottom left corner of the graph and `1,1` means the top right corner of the graph. A z corordinate can also be given for surface plots.
+    ```bash
+    set label 1 "Hi there" at screen 0,0,1  
+    # set the label at the 0,0 (or the minimum) position of the x,y axis and highest postion of the z axis
+    ```
+
+&nbsp;
 
 ### Reference
 1. Gnuplot website : http://www.gnuplot.info/
