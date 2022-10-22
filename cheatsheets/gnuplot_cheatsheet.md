@@ -271,7 +271,7 @@ sp [][][:20] 'data.dat' u 1:2:3 every 2 w l title "u_1"
 
 
 #### Markups & Symbols
-Set the therminal type as `set encoding iso_8859_1` to use symbols and markups.  
+Set the terminal type as `set encoding iso_8859_1` to use symbols and markups.  
 
 - Useful Gnuplot Symbols
 
@@ -301,7 +301,7 @@ Set the therminal type as `set encoding iso_8859_1` to use symbols and markups.
 |     __abc__    | {/Times:Bold=20 abc}  |Bold |
 |    $a^b_c$    | a@^b_c  |Align super and subscript |
 
-    </details>   
+
 
 * Markups can be turned off (if its already on for the terminal) with `noenhanced` keyword
 
@@ -311,7 +311,7 @@ Set the therminal type as `set encoding iso_8859_1` to use symbols and markups.
 #### Miscellaneous
 
 1. __Remove margins from gnuplot saved eps__:  
-    Congfiguring margins inside gnuplot is tricky, instead use `eps2eps` removes margins from eps files saved from gnuplot. Save the figure in eps using gnuplot, use `eps2eps` to convert to a temporary `eps` and then convert the eps to pdf to generate a pdf with no unnecessary margins. Here's a simple bash function to do that easily. Just run this `topdf test.eps`.
+    Configuring margins inside gnuplot is tricky, instead use `eps2eps` removes margins from eps files saved from gnuplot. Save the figure in eps using gnuplot, use `eps2eps` to convert to a temporary `eps` and then convert the eps to pdf to generate a pdf with no unnecessary margins. Here's a simple bash function to do that easily. Just run this `topdf test.eps`.
 
     <details>	
     <summary>Bash function</summary>
@@ -340,10 +340,10 @@ Set the therminal type as `set encoding iso_8859_1` to use symbols and markups.
     set label 1 "Hi there" at screen 0,0  # will put a label at the bottom left corner of the page
     ```
 
-    The `graph` positioning sets the graph within the axes as a box (or rectangle) of unit 1. Here the `0,0` means the bottom left corner of the graph and `1,1` means the top right corner of the graph. A z corordinate can also be given for surface plots.
+    The `graph` positioning sets the graph within the axes as a box (or rectangle) of unit 1. Here the `0,0` means the bottom left corner of the graph and `1,1` means the top right corner of the graph. A z coordinate can also be given for surface plots.
     ```bash
     set label 1 "Hi there" at screen 0,0,1  
-    # set the label at the 0,0 (or the minimum) position of the x,y axis and highest postion of the z axis
+    # set the label at the 0,0 (or the minimum) position of the x,y axis and highest position of the z axis
     ```
 
 &nbsp;
