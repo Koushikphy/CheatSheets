@@ -1,4 +1,15 @@
 
+- [Basic plot with 2 lines](#basic-plot-with-2-lines)
+  - [Plot configuration:](#plot-configuration)
+- [Configuring with `rcParams`:](#configuring-with-rcparams)
+- [Configuring font properties](#configuring-font-properties)
+- [Annotation](#annotation)
+- [Subplots](#subplots)
+- [Contours](#contours)
+  - [Line Contour:](#line-contour)
+  - [Filled Contour:](#filled-contour)
+
+
 ### Basic plot with 2 lines
 
 ```python
@@ -41,27 +52,7 @@ ax.set_yticklabels(xLabelsArr)
 plt.show()
 ```
 
-
-
-### Figure configuration
-```python
-# set figure size and DPI
-fig,ax = plt.subplots(figsize=(12,6),dpi=100)
-
-# Plot two plot side by side
-fig, axes = plt.subplots(nrows=1, ncols=2)
-#^ `axes` now a list of two axis objects, each can be used like before to plot 
-
-# remove unwanted margins, after plotting everything
-fig.tight_layout()
-
-
-# save figure
-fig.savefig("filename.png", dpi=200)
-```
-
-
-### Further configuration:
+#### Plot configuration:
 ```python
 
 ax.plot(x, x**2, 'b-') # blue line
@@ -88,6 +79,8 @@ ax.plot(x, x+16,
     markeredgewidth=3, 
     markeredgecolor="green")
 ```
+
+
 
 ### Configuring with `rcParams`:
 
