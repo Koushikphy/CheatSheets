@@ -11,13 +11,16 @@ _Provided gnuplot version above 4.6_
     - [Multiplot](#multiplot)
     - [Script for saving figure as eps/pdf](#script-for-saving-figure-as-epspdf)
     - [Markups & Symbols](#markups--symbols)
+    - [Data Processing](#data-processing)
     - [Miscellaneous](#miscellaneous)
   - [Reference](#reference)
 
 ---
 
 #### Configuring plot styles
+
 1. Check available gnuplot plot styles
+
     ```bash 
     test   
     ```
@@ -29,26 +32,28 @@ _Provided gnuplot version above 4.6_
     ```
 
 3. Plot 2D data file 'data.dat' with column 1,2, and 3 as x,y,z axis. 2D data means the data is in blocks of the x axis
+
     ```bash
     splot 'data.dat' u 1:2:3 w lp  
     sp 'data.dat' u 1:2:3 w lp   #shorten version
     ```
 
-
 4. Plot multiple lines
+
     ```bash
     p 'data.dat' u 1:2 w lp, 'data.dat' u 1:3 w lp
     p 'data.dat' u 1:2 w lp, '' u 1:3 w lp # can skip the 2nd file name if its the same as the first one
     ```
 
-
 5. Set line type, sets the color and styles of lines and points
+
     ```bash
     p 'data.dat' u 1:2 w lp linetype 1  
     p 'data.dat' u 1:2 w lp lt 1   # shorten version
     ```
 
 6. Sets color, dash, width of lines and type, size of points
+
     ```bash
     p 'data.dat' u 1:2 w lp linecolor 1 dashtype 1 linewidth 2 pointtype 2 pointsize 3 
     p 'data.dat' u 1:2 w lp lc 1 dt 1 lw 2 pt 2 ps 3   # shorten version
@@ -305,6 +310,22 @@ Set the terminal type as `set encoding iso_8859_1` to use symbols and markups.
 
 * Markups can be turned off (if its already on for the terminal) with `noenhanced` keyword
 
+&nbsp;
+
+#### Data processing:
+Functions or operators can be used inside the gnuplot to modify data from files. Data from a particular column can be referneced with the `$` macro.
+
+```bash
+pl 'data.dat' u 1:(3*$2) w l # plot column 1 and 2 with column 2 multiplied with 3
+pl 'data.dat' u 1:(abs($2)) w l # plot column 1 and 2 with absolute value of column 2
+
+torad(x)=x*3.14159265/180   # a function that converts degree to radian
+pl 'data.dat' u torad($1):2  # plot column 1 with 2, but convert the degree values to radian
+
+pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 in place of negetive number.
+```
+
+
 ---
 
 
@@ -347,6 +368,14 @@ Set the terminal type as `set encoding iso_8859_1` to use symbols and markups.
     ```
 
 &nbsp;
+
+1. __Pseudo columns__:  
+    Gnuplot actual column number starts from 1, but there are three pseudo columns (0,-1,-2) that can be used during plot.   
+    - 0     Contains the record number (starting from zero) in the current data set.
+    - -1    Contains the line number (starting from zero). Reset by a single blank line.
+    - -2    Contains the index (starting from zero) of the current data set. Reset by a double blank line.
+
+
 
 ### Reference
 1. Gnuplot website : http://www.gnuplot.info/
