@@ -320,7 +320,7 @@ pl 'data.dat' u 1:(3*$2) w l # plot column 1 and 2 with column 2 multiplied with
 pl 'data.dat' u 1:(abs($2)) w l # plot column 1 and 2 with absolute value of column 2
 
 torad(x)=x*3.14159265/180   # a function that converts degree to radian
-pl 'data.dat' u torad($1):2  # plot column 1 with 2, but convert the degree values to radian
+pl 'data.dat' u (torad($1)):2  # plot column 1 with 2, but convert the degree values to radian
 
 pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 in place of negetive number.
 ```
