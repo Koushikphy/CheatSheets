@@ -1,13 +1,16 @@
+## Matplotlib Cheatsheet
 
-- [Basic plot with 2 lines](#basic-plot-with-2-lines)
-  - [Plot configuration:](#plot-configuration)
-- [Configuring with `rcParams`:](#configuring-with-rcparams)
-- [Configuring font properties](#configuring-font-properties)
-- [Annotation](#annotation)
-- [Subplots](#subplots)
-- [Contours](#contours)
-  - [Line Contour:](#line-contour)
-  - [Filled Contour:](#filled-contour)
+
+- [Table of Contents](#matplotlib-cheatsheet)
+  - [Basic plot with 2 lines](#basic-plot-with-2-lines)
+    - [Plot configuration:](#plot-configuration)
+  - [Configuring with `rcParams`:](#configuring-with-rcparams)
+  - [Configuring font properties](#configuring-font-properties)
+  - [Annotation](#annotation)
+  - [Subplots](#subplots)
+  - [Contours](#contours)
+    - [Line Contour:](#line-contour)
+    - [Filled Contour:](#filled-contour)
 
 
 ### Basic plot with 2 lines

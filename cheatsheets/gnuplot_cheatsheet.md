@@ -3,21 +3,25 @@ _Provided gnuplot version above 4.6_
 
 
 - [Table of Contents](#gnuplot-cheatsheet)
-    - [Configuring plot styles](#configuring-plot-styles)
-    - [Multiple Data sets and data blocks](#multiple-data-sets-and-data-blocks)
-    - [Loops](#loops)
-    - [system call](#system-call)
-    - [Curve Fitting](#curve-fitting)
-    - [Multiplot](#multiplot)
-    - [Script for saving figure as eps/pdf](#script-for-saving-figure-as-epspdf)
-    - [Markups & Symbols](#markups--symbols)
-    - [Data Processing](#data-processing)
-    - [Miscellaneous](#miscellaneous)
+  - [Configuring plot styles](#configuring-plot-styles)
+  - [Multiple Data sets and data blocks](#multiple-data-sets-and-data-blocks)
+  - [Loops](#loops)
+  - [system call](#system-call)
+  - [Curve Fitting](#curve-fitting)
+  - [Multiplot](#multiplot)
+  - [Script for saving figure as eps/pdf](#script-for-saving-figure-as-epspdf)
+  - [Markups & Symbols](#markups--symbols)
+  - [Data processing:](#data-processing)
+  - [Miscellaneous](#miscellaneous)
+    - [Remove margins from gnuplot saved eps](#remove-margins-from-gnuplot-saved-eps)
+    - [Positioning things](#positioning-things)
+    - [Inline Data](#inline-data)
+    - [Pseudo columns](#pseudo-columns)
   - [Reference](#reference)
 
 ---
 
-#### Configuring plot styles
+### Configuring plot styles
 
 1. Check available gnuplot plot styles
 
@@ -128,7 +132,7 @@ _Provided gnuplot version above 4.6_
 
 ---
 
-#### Multiple Data sets and data blocks  
+### Multiple Data sets and data blocks  
 In multi data set file the data sets are separated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatively, data blocks are separated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data  
 
     **Data Sets** : *Data separated by two blank lines*.  
@@ -176,7 +180,7 @@ In multi data set file the data sets are separated with _two_ blank lines. The d
 
 ---
 
-#### Loops
+### Loops
 * __Inlined__ `for` loop (all plots will be drawn in a single graph/window) (gnuplot 4.4+)
 ```bash
 plot for [i=1:1000] 'data'.i.'.txt' using 1:2 title 'Data='.i
@@ -203,7 +207,7 @@ do for [i in ll] {
 
 ---
 
-#### system call  
+### system call  
 Use `system` command to call any terminal/system commands, e.g. to list all `.txt` file in directory
 ```bash
 system('ls *.txt')
@@ -216,7 +220,7 @@ plot for [i in system("ls *.dat")] i u 1:2 w l title i
 ---
 
 
-#### Curve Fitting
+### Curve Fitting
 
 ```bash
 f(x) = a*exp(-b*x**2)   # define the curve you want to fit
@@ -229,7 +233,7 @@ pl 'data.dat' u 1:2 w l, f(x)      # plot the fitted function for comparison, no
 
 
 
-#### Multiplot
+### Multiplot
 In multiplot mode several plots can be placed in one page/window. This is very use ful in showing multiplot plots in gridded view in a single page or showing plots in inset.
 ```bash
 
@@ -239,7 +243,7 @@ set multiplot layout 3,2  #  to plot 6 graph in 3 rows and 2 column
 ```
 ---
 
-#### Script for saving figure as eps/pdf  
+### Script for saving figure as eps/pdf  
 
 Save the following script as `test.plt` and run `gnuplot test.plt` it will generate a `output.eps` file. You can easily convert the eps file to pdf with `epspdf`.
 
@@ -275,7 +279,7 @@ sp [][][:20] 'data.dat' u 1:2:3 every 2 w l title "u_1"
 ---
 
 
-#### Markups & Symbols
+### Markups & Symbols
 Set the terminal type as `set encoding iso_8859_1` to use symbols and markups.  
 
 - Useful Gnuplot Symbols
@@ -312,7 +316,7 @@ Set the terminal type as `set encoding iso_8859_1` to use symbols and markups.
 
 &nbsp;
 
-#### Data processing:
+### Data processing:
 Functions or operators can be used inside the gnuplot to modify data from files. Data from a particular column can be referneced with the `$` macro.
 
 ```bash
@@ -329,9 +333,9 @@ pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 
 ---
 
 
-#### Miscellaneous
+### Miscellaneous
 
-1. __Remove margins from gnuplot saved eps__:  
+#### Remove margins from gnuplot saved eps
     Configuring margins inside gnuplot is tricky, instead use `eps2eps` removes margins from eps files saved from gnuplot. Save the figure in eps using gnuplot, use `eps2eps` to convert to a temporary `eps` and then convert the eps to pdf to generate a pdf with no unnecessary margins. Here's a simple bash function to do that easily. Just run this `topdf test.eps`.
 
     <details>	
@@ -353,7 +357,7 @@ pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 
 &nbsp;
 
 
-1. __Positioning things__:  
+#### Positioning things
     Gnuplot uses a coordinate style positioning to position different thing like `label`, `key` etc. This can get confusing sometimes and the best way is to use `graph` and `screen` positioning.   
     The `screen` positioning uses the whole page of the plot to position things where `0,0` is the bottom left corner and `1,1` is the top right corner of the page. e.g.
 
@@ -371,7 +375,7 @@ pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 
 
 &nbsp;
 
-1. __Inline Data__:
+#### Inline Data
     Gnuplot can draw from inline data directly specified during plot, without the need of any explicit data file.
     ```bash
     pl '-' u 1:2 w lp
@@ -386,7 +390,7 @@ pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 
 
 &nbsp;
 
-1. __Pseudo columns__:  
+#### Pseudo columns
     Gnuplot actual column number starts from 1, but there are three pseudo columns (0,-1,-2) that can be used during plot.   
     - 0     Contains the record number (starting from zero) in the current data set.
     - -1    Contains the line number (starting from zero). Reset by a single blank line.
