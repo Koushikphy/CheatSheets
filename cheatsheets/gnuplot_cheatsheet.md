@@ -97,7 +97,7 @@ _Provided gnuplot version above 4.6_
 
 11. Set texts/labels 
     ```bash
-    set label 1 "A" {at <position>} "Haveltica,20" {front|back} 
+    set label 1 "A" {at <position>} {"Haveltica,20"} {front|back} 
     # use different tag (i.e. `1` after label) for different label
     # position can be a coordinate for 2 or 3 numbers
     # for easily figuring out the position check below
@@ -107,18 +107,19 @@ _Provided gnuplot version above 4.6_
 12. Set legend
     ```bash
     pl "data.dat" u 1:2 w l title "my data" # plot "data.dat" with "my data" as legend
+    pl "data.dat" u 1:2 w l # if `title` missing then the file name with columns will be used as legend
+    pl "data.dat" u 1:2 w l notitle # Ignore this plot in legend
     set key    # show legend (default)
     unset key  # hides legend
-    set key inside  # set legend inside the plot (default)
-    set key outside # set key outside the plot
-    set key at 1,1  # set key at 1,1 position ( see below)
-    set key right top  # set key at top right corner (default)
+    set key {inside | outside} # set legend inside/outside the plot (default: inside)
     set key {left | right | center} {top | bottom | center} # set key at any of there combination only valid for `inside`  mode
     set key {above | below} # set key above of below the plot, valid only for `outside` mode.
-    set key at 5,5  # set key at coordinate at 5,5
+    set key at 1,1  # set key at 1,1 position ( see below)
     set key box 3   # Put a box around legend with line type 3
     set key reverse # Put legend text after the line symbol
     set key width 5  # set legend column width as 5
+    set key invert  # reverse the order of keys
+    set key spacing 2 # set spacing between the keys
     ```
 
 
@@ -252,21 +253,22 @@ Save the following script as `test.plt` and run `gnuplot test.plt` it will gener
 <summary>Sample script</summary>
 
 ```bash
-set term postscript enhanced color 
+set term postscript enhanced color eps
 set encoding iso_8859_1
 
 set size 1.0,1.0
+set view 55,60 # orientation, only for 3d
 # set hidden3d
+
 set xtic ("0"0,"{/Symbol p}/6"0.52,"{/Symbol p}/3"1.05,"{/Symbol p}/2"1.57) offset 0,-0.3 font ",20"
 set ytic ("0"0.0,"{/Symbol p}/2"1.57 , "{/Symbol p}"3.14, "3{/Symbol p}/2"4.71, "2{/Symbol p}"6.28) offset 0,-0.3 font ",20"
+set ztic 3 offset 1,0 font ",20"
+
 set xlabel "{/Symbol q}" offset 1,-1 font ",20"
 set ylabel "{/Symbol p}" offset -1,-1 font ",20"
-set zlabel "u (eV) "rotate parallel offset 1,0 font ",18"
-set ztic 3
-set view 55,60
-set key font ",19"
+set zlabel "u (eV) "rotate parallel offset 1,0 font ",20"
 
-set key at screen 0.9,0.9
+set key font ",19" spacing 2 at screen 0.9,0.9
 
 
 set out "output.eps"
@@ -336,65 +338,66 @@ pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 
 ### Miscellaneous
 
 #### Remove margins from gnuplot saved eps
-    Configuring margins inside gnuplot is tricky, instead use `eps2eps` removes margins from eps files saved from gnuplot. Save the figure in eps using gnuplot, use `eps2eps` to convert to a temporary `eps` and then convert the eps to pdf to generate a pdf with no unnecessary margins. Here's a simple bash function to do that easily. Just run this `topdf test.eps`.
+Configuring margins inside gnuplot is tricky, instead use `eps2eps` removes margins from eps files saved from gnuplot. Save the figure in eps using gnuplot, use `eps2eps` to convert to a temporary `eps` and then convert the eps to pdf to generate a pdf with no unnecessary margins. Here's a simple bash function to do that easily. Just run this `topdf test.eps`.
 
-    <details>	
-    <summary>Bash function</summary>
+<details>	
+<summary>Bash function</summary>
 
-    ```bash
-    topdf(){
-        for file in $@; do
-            echo $file
-            tmpFile=$(mktemp).eps
-            eps2eps $file $tmpFile
-            epspdf $tmpFile "${file%.*}".pdf
-        done
-    }
-    ```
-    </details>
+```bash
+topdf(){
+    for file in $@; do
+        echo $file   # should be eps
+        tmpFile=tmp_$file   # convert to temporary eps
+        eps2eps $file $tmpFile
+        epspdf $tmpFile "${file%.*}".pdf
+        rm $tmpFile
+    done
+}
+```
+</details>
 
 
 &nbsp;
 
 
 #### Positioning things
-    Gnuplot uses a coordinate style positioning to position different thing like `label`, `key` etc. This can get confusing sometimes and the best way is to use `graph` and `screen` positioning.   
-    The `screen` positioning uses the whole page of the plot to position things where `0,0` is the bottom left corner and `1,1` is the top right corner of the page. e.g.
+Gnuplot uses a coordinate style positioning to position different thing like `label`, `key` etc. This can get confusing sometimes and the best way is to use `graph` and `screen` positioning.   
+The `screen` positioning uses the whole page of the plot to position things where `0,0` is the bottom left corner and `1,1` is the top right corner of the page. e.g.
 
-    ```bash
-    set label 1 "Hi there" at screen 0,0  # will put a label at the bottom left corner of the page
-    ```
+```bash
+set label 1 "Hi there" at screen 0,0  # will put a label at the bottom left corner of the page
+```
 
-    The `graph` positioning sets the graph within the axes as a box (or rectangle) of unit 1. Here the `0,0` means the bottom left corner of the graph and `1,1` means the top right corner of the graph. A z coordinate can also be given for surface plots.
-    ```bash
-    set label 1 "Hi there" at screen 0,0,1  
-    # set the label at the 0,0 (or the minimum) position of the x,y axis and highest position of the z axis
-    ```
+The `graph` positioning sets the graph within the axes as a box (or rectangle) of unit 1. Here the `0,0` means the bottom left corner of the graph and `1,1` means the top right corner of the graph. A z coordinate can also be given for surface plots.
+```bash
+set label 1 "Hi there" at screen 0,0,1  
+# set the label at the 0,0 (or the minimum) position of the x,y axis and highest position of the z axis
+```
 
 
 
 &nbsp;
 
 #### Inline Data
-    Gnuplot can draw from inline data directly specified during plot, without the need of any explicit data file.
-    ```bash
-    pl '-' u 1:2 w lp
-    1 2
-    2 3
-    4 5
-    e
-    ```
-    This will plot the data [(1,2),(2,3),(4,5)] as if it were given in a file. The `-` means inline data and `e` at the end specifies the end of data input.
+Gnuplot can draw from inline data directly specified during plot, without the need of any explicit data file.
+```bash
+pl '-' u 1:2 w lp
+1 2
+2 3
+4 5
+e
+```
+This will plot the data [(1,2),(2,3),(4,5)] as if it were given in a file. The `-` means inline data and `e` at the end specifies the end of data input.
 
 
 
 &nbsp;
 
 #### Pseudo columns
-    Gnuplot actual column number starts from 1, but there are three pseudo columns (0,-1,-2) that can be used during plot.   
-    - 0     Contains the record number (starting from zero) in the current data set.
-    - -1    Contains the line number (starting from zero). Reset by a single blank line.
-    - -2    Contains the index (starting from zero) of the current data set. Reset by a double blank line.
+Gnuplot actual column number starts from 1, but there are three pseudo columns (0,-1,-2) that can be used during plot.   
+- 0     Contains the record number (starting from zero) in the current data set.
+- -1    Contains the line number (starting from zero). Reset by a single blank line.
+- -2    Contains the index (starting from zero) of the current data set. Reset by a double blank line.
 
 
 

@@ -1,4 +1,4 @@
-## OpenMP cheat sheet for Fortran
+## OpenMP Cheat Sheet for Fortran
 ---
 OpenMP: (i) Thread Level Parallelism; (ii) Shared Memory Parallelism
 
@@ -16,8 +16,8 @@ OpenMP: (i) Thread Level Parallelism; (ii) Shared Memory Parallelism
   - [Conditional parallelization: `if` clause.](#conditional-parallelization-if-clause)
   - [Noniterative workshare: `sections` clause.](#noniterative-workshare-sections-clause)
   - [Nested parallelism](#nested-parallelism)
-  - [Mutual exclusion synchronization: `critical` clause.**](#mutual-exclusion-synchronization-critical-clause)
-  - [Coarse grain vs fine grain parallelisation**](#coarse-grain-vs-fine-grain-parallelisation)
+  - [Mutual exclusion synchronization: `critical` clause.](#mutual-exclusion-synchronization-critical-clause)
+  - [Coarse grain vs fine grain parallelisation](#coarse-grain-vs-fine-grain-parallelisation)
     - [Coarse grain parallelisation](#coarse-grain-parallelisation)
     - [Fine grain parallelisation](#fine-grain-parallelisation)
 
@@ -77,9 +77,10 @@ call omp_set_num_threads(10)
 !code to be executed in parallel
 !$omp end parallel
 ```
-&nbsp;
 
 Each one of the above option to set number of threads has greater affinity than the before i.e. if all the option is set, the last one will take effect. Note, only the first option doesn't modify the code itself, so it may be more useful/portable.  </br>
+
+&nbsp;
 
 
 ### Parallelizing `do` loops
@@ -224,7 +225,7 @@ The above code will be parallelized in 2 nested parallel regions i.e. if number 
 &nbsp;
 
 
-### Mutual exclusion synchronization: `critical` clause.**
+### Mutual exclusion synchronization: `critical` clause.
 Block of code inside this clause can be run only by one thread at a time, i.e. their execution is mutually exclusive. 
 ```fortran
 !$omp parallel 
@@ -239,7 +240,7 @@ call sub1()
 &nbsp;
 
 
-### Coarse grain vs fine grain parallelisation**
+### Coarse grain vs fine grain parallelisation
 __Tl;dr__ Coarse grain means explicitly sharing of task in each threads and fine grain means let OpenMP handle how to share task in each thread.  
 
 
