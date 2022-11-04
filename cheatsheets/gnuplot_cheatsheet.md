@@ -367,6 +367,23 @@ pl 'data.dat' u 1:($2<0?0:$2) w l # `ternary operator`, plot column 2 but put 0 
     # set the label at the 0,0 (or the minimum) position of the x,y axis and highest position of the z axis
     ```
 
+
+
+&nbsp;
+
+1. __Inline Data__:
+    Gnuplot can draw from inline data directly specified during plot, without the need of any explicit data file.
+    ```bash
+    pl '-' u 1:2 w lp
+    1 2
+    2 3
+    4 5
+    e
+    ```
+    This will plot the data [(1,2),(2,3),(4,5)] as if it were given in a file. The `-` means inline data and `e` at the end specifies the end of data input.
+
+
+
 &nbsp;
 
 1. __Pseudo columns__:  
