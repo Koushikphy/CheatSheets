@@ -3,8 +3,8 @@
 
 - [Table of Contents](#matplotlib-cheatsheet)
   - [Basic plot with 2 lines](#basic-plot-with-2-lines)
-    - [Plot configuration:](#plot-configuration)
-  - [Configuring with `rcParams`:](#configuring-with-rcparams)
+    - [Plot configuration](#plot-configuration)
+  - [Configuring with `rcParams`](#configuring-with-rcparams)
   - [Configuring font properties](#configuring-font-properties)
   - [Annotation](#annotation)
   - [Subplots](#subplots)
@@ -55,7 +55,7 @@ ax.set_yticklabels(xLabelsArr)
 plt.show()
 ```
 
-#### Plot configuration:
+#### Plot configuration
 ```python
 
 ax.plot(x, x**2, 'b-') # blue line
@@ -85,7 +85,7 @@ ax.plot(x, x+16,
 
 
 
-### Configuring with `rcParams`:
+### Configuring with `rcParams`
 
 Most of the appearance for matplotlib can be configured through the `rcParams`:
 
