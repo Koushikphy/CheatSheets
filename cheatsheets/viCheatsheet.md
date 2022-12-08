@@ -9,7 +9,7 @@
 | `:wqa`   | Save changes and exit all  tabs        |
 |`:x` | Save file with encryption|
 |`:80` | Jump to line 80|
-|`80|` | Jump to column 80 (`|` is a pipe sign)|
+|`80\|` | Jump to column 80 (`\|` is a pipe sign)|
 |`i` |insert before the cursor|
 |`I` |insert at the beginning of the line|
 |`a` |insert (append) after the cursor|
@@ -19,7 +19,7 @@
 |`:sp file`| Open `file` in a horizontal split |
 |`:vsp file`|  Open `file` in a vertical split |
 |`Ctrl+ww`|  Switch between currently opened files in splits |
-|`g-t`|  Switch between currently opened files in tabs |
+|`g+t/T`|  Switch between currently opened files in tabs |
 | `dd`   | Delete the current line        |
 | `D`   | Delete the rest of the line on the right of the cursor        |
 | `7dd`   | Delete next 7 line        |
@@ -34,6 +34,7 @@
 | `:7,$y`   | Copy  line 7 to end of the file      |
 | `:.,$y`   | Copy current line to end of the file      |
 |`:2,7w newfile`| Copy line 2 to 7 of the current file and save it in `newfile`|
+|`:2,7w! oldfile`| Copy line 2 to 7 and overwrite the existing `oldfile`|
 |`p`|Paste after the current line|
 |`P`|Paste after the current line|
 |`r`|Replace current letter|
