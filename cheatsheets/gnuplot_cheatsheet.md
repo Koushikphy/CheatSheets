@@ -3,6 +3,7 @@ _Provided gnuplot version above 4.6_
 
 
 - [Table of Contents](#gnuplot-cheatsheet)
+  - [Basic Plot](#basic-plot)
   - [Configuring plot styles](#configuring-plot-styles)
   - [Multiple Data sets and data blocks](#multiple-data-sets-and-data-blocks)
   - [Loops](#loops)
@@ -10,7 +11,7 @@ _Provided gnuplot version above 4.6_
   - [Curve Fitting](#curve-fitting)
   - [Multiplot](#multiplot)
   - [Script for saving figure as eps/pdf](#script-for-saving-figure-as-epspdf)
-  - [Markups & Symbols](#markups--symbols)
+  - [Markups \& Symbols](#markups--symbols)
   - [Data processing:](#data-processing)
   - [Miscellaneous](#miscellaneous)
     - [Remove margins from gnuplot saved eps](#remove-margins-from-gnuplot-saved-eps)
@@ -21,10 +22,9 @@ _Provided gnuplot version above 4.6_
 
 ---
 
-### Configuring plot styles
+### Basic Plot
 
 1. Check available gnuplot plot styles
-
     ```bash 
     test   
     ```
@@ -32,32 +32,39 @@ _Provided gnuplot version above 4.6_
 2. Plot 'data.dat' file with column 1 and 2 as x and y axis, with lines+points
     ```bash
     plot 'data.dat' using 1:2 with linespoints 
-    p 'data.dat' u 1:2 w lp   #shorten version
+    p 'data.dat' u 1:2 w lp  #shorten version
+    p 'data.dat' u 1:2 w l   # plot only with line
+    p 'data.dat' u 1:2 w p   # plot only with points
     ```
 
 3. Plot 2D data file 'data.dat' with column 1,2, and 3 as x,y,z axis. 2D data means the data is in blocks of the x axis
-
     ```bash
     splot 'data.dat' u 1:2:3 w lp  
     sp 'data.dat' u 1:2:3 w lp   #shorten version
     ```
 
 4. Plot multiple lines
-
     ```bash
     p 'data.dat' u 1:2 w lp, 'data.dat' u 1:3 w lp
     p 'data.dat' u 1:2 w lp, '' u 1:3 w lp # can skip the 2nd file name if its the same as the first one
     ```
 
-5. Set line type, sets the color and styles of lines and points
+5. Multiple y-axis
+    ```bash
+    plot "data1.dat" u 1:2 w l axes x1y1, "data2.dat" u 1:2 w l axes x1y2 
+    # plot "data1.dat" on x axes 1 and y axes 1 i.e. use bottom and left axes for x and y respectively, and use "data.dat" with right axes as y axes. All the ranges, labels etc for the 2nd y axes can be controlled with y2range and y2label
+    ```
 
+
+### Configuring plot styles
+
+5. Set line type, sets the color and styles of lines and points
     ```bash
     p 'data.dat' u 1:2 w lp linetype 1  
     p 'data.dat' u 1:2 w lp lt 1   # shorten version
     ```
 
 6. Sets color, dash, width of lines and type, size of points
-
     ```bash
     p 'data.dat' u 1:2 w lp linecolor 1 dashtype 1 linewidth 2 pointtype 2 pointsize 3 
     p 'data.dat' u 1:2 w lp lc 1 dt 1 lw 2 pt 2 ps 3   # shorten version
@@ -123,22 +130,13 @@ _Provided gnuplot version above 4.6_
     set key spacing 2 # set spacing between the keys
     ```
 
-
-
-13. Multiple y-axis
-    ```bash
-    plot "data1.dat" u 1:2 w l axes x1y1, "data2.dat" u 1:2 w l axes x1y2 
-    # plot "data1.dat" on x axes 1 and y axes 1 i.e. use bottom and left axes for x and y respectively, and use "data.dat" with right axes as y axes. All the ranges, labels etc for the 2nd y axes can be controlled with y2range and y2label
-    ```
-
-
 ---
 
 ### Multiple Data sets and data blocks  
 In multi data set file the data sets are separated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatively, data blocks are separated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data  
 
-  **Data Sets** : *Data separated by two blank lines*.  
-  **Data Blocks**: *Data separated by one blank lines*.  
+**Data Sets** : *Data separated by two blank lines*.  
+**Data Blocks**: *Data separated by one blank lines*.  
 
 
 -  __Plot part of a file__ :  
