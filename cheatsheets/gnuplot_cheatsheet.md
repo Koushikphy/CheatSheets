@@ -111,9 +111,10 @@ _Provided gnuplot version above 4.6_
     pl "data.dat" u 1:2 w l notitle # Ignore this plot in legend
     set key    # show legend (default)
     unset key  # hides legend
-    set key {inside | outside} # set legend inside/outside the plot (default: inside)
     set key {left | right | center} {top | bottom | center} # set key at any of there combination only valid for `inside`  mode
+    set key {inside | outside} # set legend inside/outside the plot (default: inside)
     set key {above | below} # set key above of below the plot, valid only for `outside` mode.
+    set key {Left | Right} # Justify legend text left or right
     set key at 1,1  # set key at 1,1 position ( see below)
     set key box 3   # Put a box around legend with line type 3
     set key reverse # Put legend text after the line symbol
