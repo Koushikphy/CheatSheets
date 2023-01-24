@@ -137,8 +137,8 @@ _Provided gnuplot version above 4.6_
 ### Multiple Data sets and data blocks  
 In multi data set file the data sets are separated with _two_ blank lines. The data sets can be 1D or 2D data sets. Alternatively, data blocks are separated with just one blank lines. This makes a data set with multiple data blocks a 2D surface data or multiple 1D line data  
 
-    **Data Sets** : *Data separated by two blank lines*.  
-    **Data Blocks**: *Data separated by one blank lines*.  
+  **Data Sets** : *Data separated by two blank lines*.  
+  **Data Blocks**: *Data separated by one blank lines*.  
 
 
 -  __Plot part of a file__ :  
