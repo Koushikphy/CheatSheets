@@ -38,8 +38,8 @@ ax.set_xlim([0,6])
 ax.set_ylim([-.5,18])
 
 # set axes labels, labelpad is offset of the label from the axis
-ax.set_xlabel('y (\AA)$ ', fontsize=21, labelsize=10)
-ax.set_ylabel('x', fontsize=21, labelsize=10)
+ax.set_xlabel('y (\AA)$ ', fontsize=21, labelpad=10)
+ax.set_ylabel('x', fontsize=21, labelpad=10)
 
 
 # set axis tics properties
@@ -587,10 +587,13 @@ fig, ax0 = plt.subplots(1)
 levels = np.unique(np.percentile(z,np.linspace(0,100,20)))
 # levels is any monotonically increasing array to specify the contour level, 
 # the percentile is a quick way to calculate some proper levels for the data
+# otherwise use a userdefined array for the contour labels
+
 cp = ax0.contour(x, y, z, levels = levels, linewidths=1.3,colors='black')#, linestyles='solid')
 # x,y,z are all 2D arrays for surface plot data
-ax0.clabel(cp, inline=True,manual=True,inline_spacing=1,fontsize=13,fmt='%.3f')
+ax0.clabel(cp, inline=True,manual=True,inline_spacing=1,fontsize=13,fmt='%.3f',colors='black')
 # manual True means you have to manually specify the contour label position by clicking on it
+# `fmt` can be a function that returns the label string by taking the label value as input 
 
 # if you want to use legend with the contour plot, useful for multiple surface contour 
 lines = [ cp.collections[0]]

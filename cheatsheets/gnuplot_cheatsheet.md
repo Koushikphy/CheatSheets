@@ -104,7 +104,7 @@ _Provided gnuplot version above 4.6_
 
 11. Set texts/labels 
     ```bash
-    set label 1 "A" {at <position>} {"Haveltica,20"} {front|back} 
+    set label 1 "A" {at <position>} {font "Haveltica,20"} {front|back} 
     # use different tag (i.e. `1` after label) for different label
     # position can be a coordinate for 2 or 3 numbers
     # for easily figuring out the position check below
@@ -288,6 +288,7 @@ Set the terminal type as `set encoding iso_8859_1` to use symbols and markups.
 | Symbol      | GnuPlot symbol |Symbol  |GnuPlot symbol | 
 | ----------- | ----------- |---| ---| 
 | `Å` (angstrom)     | {\305}      |`°` (degree)   | {\260}       |
+| `′` (prime)     | {/Verdana '}      |`≠` (not equal)   | {/Symbol \271}       |
 |`α` (alpha)         |  {/Symbol a}    |`β` (beta)          |  {/Symbol b}    |
 |`χ` (chi)       |  {/Symbol c}|`δ`/`Δ` (delta)       |  {/Symbol d/D}    |
 |`ε` (epsilon)       |  {/Symbol e}   |`φ`/`Φ` (phi)         |  {/Symbol f/j/F}    |
